@@ -1,0 +1,3 @@
+*** IDEAS APP ***
+
+- Al pinchar "Enviar" en uno de los formularios, redirigir a la usuaria al menú principal

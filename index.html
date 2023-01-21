@@ -1,0 +1,144 @@
+<html>
+    <head>
+
+        <!-- PWA STUFF: -->
+        <!-- Responsive -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=720, maximum-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible"
+                content="ie=edge">
+        
+
+        <title>Manresa Segura</title>
+
+        <!-- Meta Tags required for
+	    Progressive Web App -->
+        <meta name=
+        "apple-mobile-web-app-status-bar"
+            content="#aa7700">
+        <meta name="theme-color"
+            content="black">
+
+        <!-- Manifest File link -->
+        <link rel="manifest"
+                href="manifest.json">
+
+
+
+        <link rel="icon" type="image/gif/png" href="logo_ManresaSegura.png">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="estils.css">
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEB1plSzdQgv2oSvyvPT99BHmhJpG8Cys&v=3.exp"></script>
+        <script type="text/javascript" src="codi.js"></script> <!-- Afegeixo "text/javascript" per raons de compatibilitat-->
+    
+        
+
+
+
+    
+    </head>
+    
+    <body id="caixaCos">
+        <div class="header">
+            <!--<span class="menu-desplegable">&#8801</span> -->
+            <h1>MANRESA SEGURA</h1>
+
+        </div>
+        <div class="cosPrincipal">
+
+
+            <div id="zonaInsegura">
+
+                <h2>Marcar Zona</h2> 
+                <h2>Insegura</h2>
+            </div>
+
+            <script type="text/javascript">
+                document.getElementById("zonaInsegura").onclick = function () {
+                    location.href= "zonaInsegura.html" ;
+                };
+            </script>
+
+            
+            <div id="zonaAssetjament">
+                <h2>Comunicar</h2>
+                <h2>Assetjament</h2>
+            </div>
+
+            <script type="text/javascript">
+                document.getElementById("zonaAssetjament").onclick = function () {
+                    location.href= "assetjament.html" ;
+                };
+            </script>
+
+
+            <div id="boto-consultar-mapa">
+                <p><img class="icona-maps" src="images/icona-maps.png" /></p>
+                <p class="icona-maps-text">Consultar Mapa</p>
+            </div>
+
+            <div id="boto-necessites-ajuda" onclick="window.open('telf:112');">
+                <p><img class="icona-tlf" src="images/icona_telefon.png"/></p>
+                <p class="icona-tlf-text">Necessites Ajuda?</p>
+            </div>
+
+            <div id="mes-info"><p>Saber-ne més</p></div>
+
+
+
+        </div>
+        
+        <div class="footer">
+            <div class="switch-button">
+                <!-- Checkbox -->
+                <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
+                <!-- Botón -->
+                <label for="switch-label" class="switch-button__label"></label>
+            </div>
+            <p id="politica">Política de Privacitat</p>
+
+            <br>
+            <div class="switch-button2">
+                <!-- Checkbox -->
+                <input type="checkbox" name="switch-button2" id="switch-label2" class="switch-button__checkbox2">
+                <!-- Botón -->
+                <label for="switch-label2" class="switch-button__label2"></label>
+            </div>    
+            
+            <p id="avisLegal">Avís Legal</p>
+
+
+        </div>
+
+        <script>
+	
+            window.addEventListener('load', () => {
+            registerSW();
+            });
+        
+            // Register the Service Worker
+            async function registerSW() {
+            if ('serviceWorker' in navigator) {
+                try {
+                await navigator
+                        .serviceWorker
+                        .register('serviceworker.js');
+                }
+                catch (e) {
+                console.log('SW registration failed');
+                }
+            }
+            }
+        
+        
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,163 @@
+<html>
+    <head>
+
+        <!-- PWA STUFF: -->
+        <!-- Responsive -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=720, maximum-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible"
+                content="ie=edge">
+        
+
+        <title>Manresa Segura</title>
+
+        <!-- Meta Tags required for
+	    Progressive Web App -->
+        <meta name=
+        "apple-mobile-web-app-status-bar"
+            content="#aa7700">
+        <meta name="theme-color"
+            content="black">
+
+        <!-- Manifest File link -->
+        <link rel="manifest"
+                href="manifest.json">
+
+
+
+        <link rel="icon" type="image/gif/png" href="logo_ManresaSegura.png">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="estils.css">
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEB1plSzdQgv2oSvyvPT99BHmhJpG8Cys&v=3.exp"></script>
+        <script type="text/javascript" src="codi.js"></script> <!-- Afegeixo "text/javascript" per raons de compatibilitat-->
+
+    </head>
+    
+    <body id="caixaCos">
+
+        <div class="header">
+            <!--<span class="menu-desplegable">&#8801</span> -->
+            <h1><a href="index.html">MANRESA SEGURA</a></h1>  
+        </div>
+        <div class="cosPrincipal">
+
+            <div id="titol-zonainsegura">
+                <h2>Marcar Assetjament a la Via Pública</h2>
+            </div>
+
+            <button id="boto-centrarMapa">
+                <p>Centrar Mapa</p>
+            </button>
+
+            <script>
+                document.getElementById("boto-centrarMapa").addEventListener("click", function( event ) {
+                    map2.setCenter(new google.maps.LatLng(41.727751, 1.827424));
+                    map2.setZoom(13);
+                });
+            </script>
+
+            <div id="contenidor-mapa">
+                <div id="map-canvas-inseg"></div>
+            </div>
+
+            
+            <label>
+                <span>Tipus d'Assetjament</span>
+                <select class="select-css">
+                    <option hidden>Tipus d'Assetjament</option>
+                    <option>Mirades sexuades no desitjades</option>
+                    <option>Xiulades o cops de clàxon</option>
+                    <option>Comentaris masclistes o crits invasius</option>
+                    <option>Invasió continuada de l'espai personal</option>
+                    <option>Tocaments puntuals o continus no desitjats</option>
+                    <option>Acorralaments</option>
+                    <option>Violació amb intimidació i/o violència física</option>
+                </select>
+                </label>
+
+
+                <!--
+            <form action="#">
+                <label for="incidencia">Incidència</label>
+                <select name="incidencies" id="incidencia">
+                <option value="selecciona">Selecciona un tipus d'Incidència</option>
+                  <option value="mirades-sexuades">Mirades sexuades no desitjades</option>
+                  <option value="sons">Xiulades o cops de clàxon</option>
+                  <option value="comentaris">Comentaris masclistes o crits invasius</option>
+                  <option value="invasio">Invasió continuada de l'espai personal</option>
+                  <option value="tocaments">Tocaments puntuals o continus no desitjats</option>
+                  <option value="acorralaments">Acorralaments</option>
+                  <option value="violacio">Violació amb intimidació i/o amb violència física</option>
+                </select>
+                <input type="submit" value="Submit" />
+          </form>
+
+-->
+
+
+
+
+
+
+            <h3 class="comentari-formulari">
+                Comentari:
+            </h3>
+
+            <form><textarea></textarea></form>
+
+            <h3 class="comentari-formulari">
+                Hora:
+            </h3>
+
+            <!--<form><textarea class="hora-formulari"></textarea></form>-->
+            <input class="input-time" type="time" id="appt" name="appt"
+            min="09:00" max="18:00" required>
+
+            
+            <button id="boto-zonaInsegura">
+                    Enviar
+            </button>
+            
+        
+
+        </div>
+        
+        
+
+        <script>
+	
+            window.addEventListener('load', () => {
+            registerSW();
+            });
+        
+            // Register the Service Worker
+            async function registerSW() {
+            if ('serviceWorker' in navigator) {
+                try {
+                await navigator
+                        .serviceWorker
+                        .register('serviceworker.js');
+                }
+                catch (e) {
+                console.log('SW registration failed');
+                }
+            }
+            }
+        
+        
+        </script>
+
+    </body>
+</html>
+
+
+
+
+

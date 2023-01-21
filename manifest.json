@@ -1,0 +1,29 @@
+{
+	"name":"Manresa Segura",
+	"short_name":"ManreSeg",
+	"start_url":"index.html",
+	"display":"standalone",
+	"background_color":"#5900b3",
+	"orientation":"portrait",
+	"theme_color":"#5900b3",
+	"scope": ".",
+	"description":"App Manresa Segura",
+	"icons":[
+	{
+		"src":"images/manresasegura-144X144.png",					
+		"sizes":"144x144",
+		"type":"image/png",
+		"purpose":"maskable"
+		},
+	{
+	"src":"images/manresasegura-192x192.png",					
+	"sizes":"192x192",
+	"type":"image/png"
+	},
+	{
+	"src":"images/manresasegura-512x512.png",
+	"sizes":"512x512",
+	"type":"image/png"
+	}
+]
+}
