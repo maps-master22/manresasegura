@@ -80,13 +80,6 @@
 
             <!-- Reverse Geocoding attempt-->
 
-            
-
-
-
-
-
-
             <div id="contenidor-mapa">
                 <div id="map-canvas-inseg"></div>
                     <input id="latlng" type="text" value="41.727751,1.827424" />
@@ -171,14 +164,34 @@
                 };
               
                 // Initialize Firebase
+                
                 const app = initializeApp(firebaseConfig);
                 const analytics = getAnalytics(app);
 
 
                 const db = getFirestore();
-                //const usersRef = db.child("users");
 
+                const comentari = document.querySelector(".comentari-formulari-text");
+                const incidencia = document.querySelector(".select-css");
+                const hora = document.querySelector(".input-time"); 
 
+                document.getElementById("boto-zonaInsegura").onclick = function () {
+
+                db.collection("zonaInsegura").doc("LA").set({
+                Incidència: incidencia.value,
+                Comentari: comentari.value,
+                Hora: hora.value,
+                Coordenada: coord.value
+                })
+                .then(() => {
+                console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                console.error("Error writing document: ", error);
+                });
+                };
+
+                /*
                 document.getElementById("boto-zonaInsegura").onclick = function () {
                 const comentari = document.querySelector(".comentari-formulari-text");
                 const incidencia = document.querySelector(".select-css");
@@ -189,16 +202,17 @@
                 
                 db.collection("contact-form").doc()
                 .set({
-                    Comentari: comentari,
-                    Incidència: incidencia,
-                    Hora: hora,
-                    Coordenada: coord
+                    Comentari: comentari.value,
+                    Incidència: incidencia.value,
+                    Hora: hora.value,
+                    Coordenada: coord.value
                 })
                 .then ( () =>
                 location.href= "index.html" 
                 );
                 
             };
+            */
               </script>
 
            

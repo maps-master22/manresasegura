@@ -182,10 +182,27 @@ window.addEventListener('load', initialize2);
 
 
 // Firebase attempt 2
+/*
+let app;
+let db;
+
+document.addEventListener("DOMContentLoaded", event => {
+
+    app = firebase.app();
+
+    db = firebase.firestore();
+
+    const myPost = db.collection('posts').doc('firstpost');
+});
+
+
+
 
 const incidencia = document.querySelector(".select-css");
 const comentari = document.querySelector(".comentari-formulari-text");
 const hora = document.querySelector(".input-time");
+*/
+
 
 
 
