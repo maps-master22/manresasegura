@@ -8,11 +8,11 @@ ul,ol{list-style:none}
 
 body {font-family: Verdana; font-size:24px; color:#ffffff; -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-h1 {font-size:72px; font-family: 'Libre Baskerville', serif; padding:40px;}
-h2 {font-size:32px; font-family: 'Libre Baskerville', serif;}
-h3 {font-size:28px; font-family: 'Libre Baskerville', serif; }
-h4 {font-size:26x;font-family: 'Libre Baskerville', serif; display:inline-block; padding:5px; margin-bottom: 20px; color:#ffffff;}
-p {font-size:25px; text-align:left; } 
+h1 {font-size:32px; font-family: 'Libre Baskerville', serif;}
+h2 {font-size:26px; font-family: 'Libre Baskerville', serif;}
+h3 {font-size:22px; font-family: 'Libre Baskerville', serif; }
+h4 {font-size:20px;font-family: 'Libre Baskerville', serif; display:inline-block; color:#ffffff;}
+p {font-size:14px; text-align:left; } 
 strong {font-weight: bold;}
 em {font-family:Verdana, cursive;}
 
@@ -22,33 +22,34 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
 /* Truc CSS per treure botons molestos mapa */
 .gm-style-cc { display:none; } 
 
-#caixaCos { width: 100%; height:100%; margin: 0 auto; padding:0; display: flex; flex-direction: column;
+#caixaCos { width: 100vw; height:100vh; margin: 0 auto; padding:0; display: flex; flex-direction: column;
     -ms-flex-direction: column; background: #ffffff; }
 
-.header { height: 250px; background-color: #ffffff; z-index: 100;}
-    .header h1 {text-align:center; color: #000000; background-color: rgb(216, 198, 225);}
+.header { height: 20vh; background-color: purple; z-index: 100;}
+    .header h1 {text-align:center; color: #000000; }
 
-.cosPrincipal { flex:1; background-color:#ffffff; z-index:100;}
+.cosPrincipal { /*flex:1;*/height:70vh; background-color:#ffffff; z-index:100;}
+	#embolcallZones { text-align: center; }
     
-    #zonaInsegura {width: 280px; height:70px; text-align:center; padding:40px 0; margin-top:100px; margin-left:50px;
+    #zonaInsegura {width: 30vw; height:10vh; text-align:center; padding:5vh 0; margin-top:10vh; margin-left:50px;
         background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:5px; box-shadow: 5px 10px 5px lightgray;}
         #zonaInsegura:hover {background-color: purple; color: #ffffff; cursor: pointer; box-shadow: 5px 10px 5px gray;}
 
 
-    #zonaAssetjament {width: 280px; height:70px; text-align:center; padding:40px 0px; margin-top:60px; margin-left: 30px; 
+    #zonaAssetjament {width: 30vw; height:10vh; text-align:center; padding:5vh 0; margin-top:10vh; margin-left: 30px; 
         background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:5px; box-shadow: 5px 10px 5px lightgray;}
         #zonaAssetjament:hover {background-color: purple; color: #ffffff; cursor: pointer; box-shadow: 5px 10px 5px gray;}
 
 
-        #boto-consultar-mapa {position:relative; width:300px; height: 80px; background-color: rgb(151, 101, 174); 
-            margin:auto; margin-top: 120px; border-radius:10px; cursor:pointer; }
+        #boto-consultar-mapa {position:relative; width:300px; height: 10vh; background-color: rgb(151, 101, 174); 
+            margin:auto; margin-top: 5vh; border-radius:10px; cursor:pointer; }
             #boto-consultar-mapa:hover {background-color:purple;}
-            .icona-maps {position:absolute; width:40px; height:40px; float:left; margin-top:20px; margin-left:20px; background-color: lime;
+            .icona-maps {position:absolute; width:13%; height:50%; float:left; margin-top:5%; margin-left:5%; background-color: lime;
             border-radius:5px; }
             .icona-maps-text {font-size:25px; display:inline-block; margin-top:25px; margin-left:75px;}
         
-        #boto-necessites-ajuda {position:relative; width:300px; height: 80px; background-color: rgb(151, 101, 174); 
-            margin:auto; margin-top: 50px; border-radius:10px; cursor:pointer;}
+        #boto-necessites-ajuda {position:relative; width:300px; height: 10vh; background-color: rgb(151, 101, 174); 
+            margin:auto; margin-top: 5vh; border-radius:10px; cursor:pointer;}
             @keyframes glowing {
                 0% {
                   background-color: rgb(151, 101, 174);
@@ -69,7 +70,7 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
                 border-radius:5px; }
                 .icona-tlf-text {font-size:25px; display:inline-block; margin-left:75px; margin-top:25px;  }
 
-        #mes-info {margin:auto; margin-top:50px; font-size:20px; color: #000000; }
+        #mes-info {margin:auto; margin-top:5vh; font-size:2vh; color: #000000; }
                 #mes-info p {text-align:center;}
                 #mes-info p:hover {text-decoration:underline; cursor:pointer;}
             
@@ -80,7 +81,7 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
         */
         
 
-.footer {clear: both; height:200px; background-color: rgb(216, 198, 225); z-index: 100;}
+.footer {clear: both; height:10vh; background-color: rgb(216, 198, 225); z-index: 100;}
 
     :root {
     --color-green: #00a878;
@@ -88,26 +89,26 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
     --color-button: #fdffff;
     --color-black: #000;
     }
-    .switch-button { display: inline-block; margin-top:40px; margin-left:50px; }
+    .switch-button { display: inline-block; margin-top:0.25vh; margin-left:50px; }
     .switch-button .switch-button__checkbox { display: none;}
-    .switch-button .switch-button__label { background-color: var(--color-red); width: 5rem; height: 3rem; border-radius: 3rem;
+    .switch-button .switch-button__label { background-color: var(--color-red); width: 8vw; height: 2vh; border-radius: 1vh;
         display: inline-block; position: relative;}
-    .switch-button .switch-button__label:before { transition: .2s; display: block; position: absolute; width: 3rem; height: 3rem;
+    .switch-button .switch-button__label:before { transition: .2s; display: block; position: absolute; width: 2vh; height: 2vh;
         background-color: var(--color-button); content: ''; border-radius: 50%; box-shadow: inset 0px 0px 0px 1px var(--color-black);}
     .switch-button .switch-button__checkbox:checked + .switch-button__label { background-color: var(--color-green);}
-    .switch-button .switch-button__checkbox:checked + .switch-button__label:before {transform: translateX(2rem);}
+    .switch-button .switch-button__checkbox:checked + .switch-button__label:before {transform: translateX(5vw);}
 
-    #politica {position:absolute; margin-top: 53px; margin-left: 20px; display:inline-block; font-size: 26px; color:#000000;}
-    #avisLegal {position:absolute; margin-top: 43px; margin-left: 20px; display:inline-block; font-size: 26px; color:#000000;}
+    #politica {position:absolute; margin-top: 0.25vh; margin-left: 20px; display:inline-block; color:#000000;}
+    #avisLegal {position:absolute; margin-top: 0.5vh; margin-left: 20px; display:inline-block;  color:#000000;}
 
-    .switch-button2 { display: inline-block; margin-top:30px; margin-left:50px; }
+    .switch-button2 { display: inline-block; margin-top:0.5vh; margin-left:50px; }
     .switch-button2 .switch-button__checkbox2 { display: none;}
-    .switch-button2 .switch-button__label2 { background-color: var(--color-red); width: 5rem; height: 3rem; border-radius: 3rem;
+    .switch-button2 .switch-button__label2 { background-color: var(--color-red); width: 8vw; height: 2vh; border-radius: 1vh;
         display: inline-block; position: relative;}
-    .switch-button2 .switch-button__label2:before { transition: .2s; display: block; position: absolute; width: 3rem; height: 3rem;
+    .switch-button2 .switch-button__label2:before { transition: .2s; display: block; position: absolute; width: 2vh; height: 2vh;
         background-color: var(--color-button); content: ''; border-radius: 50%; box-shadow: inset 0px 0px 0px 1px var(--color-black);}
     .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2 { background-color: var(--color-green);}
-    .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2:before {transform: translateX(2rem);}
+    .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2:before {transform: translateX(5vw);}
 
 
 
