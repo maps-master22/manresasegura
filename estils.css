@@ -9,10 +9,10 @@ ul,ol{list-style:none}
 body {font-family: Verdana; font-size:24px; color:#ffffff; -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 h1 {font-size:32px; font-family: 'Libre Baskerville', serif;}
-h2 {font-size:26px; font-family: 'Libre Baskerville', serif;}
-h3 {font-size:22px; font-family: 'Libre Baskerville', serif; }
-h4 {font-size:20px;font-family: 'Libre Baskerville', serif; display:inline-block; color:#ffffff;}
-p {font-size:14px; text-align:left; } 
+h2 {font-size:28px; font-family: 'Libre Baskerville', serif;}
+h3 {font-size:26px; font-family: 'Libre Baskerville', serif; }
+h4 {font-size:24px;font-family: 'Libre Baskerville', serif; display:inline-block; color:#ffffff;}
+p {font-size:22px; text-align:left; } 
 strong {font-weight: bold;}
 em {font-family:Verdana, cursive;}
 
@@ -25,31 +25,31 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
 #caixaCos { width: 100vw; height:100vh; margin: 0 auto; padding:0; display: flex; flex-direction: column;
     -ms-flex-direction: column; background: #ffffff; }
 
-.header { height: 20vh; background-color: purple; z-index: 100;}
+.header { height: 20vh; background-color: rgb(216, 198, 225); z-index: 100;}
     .header h1 {text-align:center; color: #000000; }
 
 .cosPrincipal { /*flex:1;*/height:70vh; background-color:#ffffff; z-index:100;}
 	#embolcallZones { text-align: center; }
     
-    #zonaInsegura {width: 30vw; height:10vh; text-align:center; padding:5vh 0; margin-top:10vh; margin-left:50px;
-        background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:5px; box-shadow: 5px 10px 5px lightgray;}
+    #zonaInsegura {width: 220px; height:4.5vh; text-align:center; padding:5vh 0; margin-top:15vh;
+        background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:30px; box-shadow: 5px 10px 5px lightgray;}
         #zonaInsegura:hover {background-color: purple; color: #ffffff; cursor: pointer; box-shadow: 5px 10px 5px gray;}
 
 
-    #zonaAssetjament {width: 30vw; height:10vh; text-align:center; padding:5vh 0; margin-top:10vh; margin-left: 30px; 
-        background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:5px; box-shadow: 5px 10px 5px lightgray;}
+    #zonaAssetjament {width: 220px; height:4.5vh; text-align:center; padding:5vh 0; margin-top:15vh; margin-left: 30px; 
+        background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:30px; box-shadow: 5px 10px 5px lightgray;}
         #zonaAssetjament:hover {background-color: purple; color: #ffffff; cursor: pointer; box-shadow: 5px 10px 5px gray;}
 
 
-        #boto-consultar-mapa {position:relative; width:300px; height: 10vh; background-color: rgb(151, 101, 174); 
+        #boto-consultar-mapa {position:relative; width:300px; height: 6vh; background-color: rgb(151, 101, 174); 
             margin:auto; margin-top: 5vh; border-radius:10px; cursor:pointer; }
             #boto-consultar-mapa:hover {background-color:purple;}
-            .icona-maps {position:absolute; width:13%; height:50%; float:left; margin-top:5%; margin-left:5%; background-color: lime;
+            .icona-maps {position:absolute; width:13%; height:50%; float:left; margin-top:1.5vh; margin-left:20px; background-color: lime;
             border-radius:5px; }
-            .icona-maps-text {font-size:25px; display:inline-block; margin-top:25px; margin-left:75px;}
+            .icona-maps-text {font-size:25px; display:inline-block; margin-top:2vh; margin-left:75px;}
         
-        #boto-necessites-ajuda {position:relative; width:300px; height: 10vh; background-color: rgb(151, 101, 174); 
-            margin:auto; margin-top: 5vh; border-radius:10px; cursor:pointer;}
+        #boto-necessites-ajuda {position:relative; width:300px; height: 6vh; background-color: rgb(151, 101, 174); 
+            margin:auto; margin-top: 3vh; border-radius:10px; cursor:pointer;}
             @keyframes glowing {
                 0% {
                   background-color: rgb(151, 101, 174);
@@ -66,19 +66,14 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
               }
         #boto-necessites-ajuda { animation: glowing 1300ms infinite; }
             #boto-necessites-ajuda:active {background-color:purple;}
-                .icona-tlf {position:absolute; width:40px; height:40px; float:left; margin-top:20px; margin-left:20px; background-color: lime;
+                .icona-tlf {position:absolute; width:40px; height:40px; float:left; margin-top:1.5vh; margin-left:20px; background-color: lime;
                 border-radius:5px; }
-                .icona-tlf-text {font-size:25px; display:inline-block; margin-left:75px; margin-top:25px;  }
+                .icona-tlf-text {font-size:25px; display:inline-block; margin-left:75px; margin-top:2vh;  }
 
-        #mes-info {margin:auto; margin-top:5vh; font-size:2vh; color: #000000; }
+        #mes-info {margin:auto; margin-top:5vh; color: #000000; }
                 #mes-info p {text-align:center;}
                 #mes-info p:hover {text-decoration:underline; cursor:pointer;}
             
-        /* #boto-consultar-mapa {width:400px; height: 80px; background-color: purple; margin-top: 100px; margin-left: 500px;}
-        #boto-consultar-mapa p {display:inline-block; padding:10px 0px; margin-top:0px; background-color: lime;}
-        .icona-maps {width:80%; height: 80%; object-fit: contain;}
-        .icona-maps-text {vertical-align:bottom; font-size:25px; }
-        */
         
 
 .footer {clear: both; height:10vh; background-color: rgb(216, 198, 225); z-index: 100;}
@@ -89,23 +84,25 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
     --color-button: #fdffff;
     --color-black: #000;
     }
-    .switch-button { display: inline-block; margin-top:0.25vh; margin-left:50px; }
+    .switch-button { display: inline-block; margin-top:1vh; margin-left:50px; }
     .switch-button .switch-button__checkbox { display: none;}
-    .switch-button .switch-button__label { background-color: var(--color-red); width: 8vw; height: 2vh; border-radius: 1vh;
+    .switch-button .switch-button__label { background-color: var(--color-red); width: 10vw; height: 3vh; border-radius: 2vh;
         display: inline-block; position: relative;}
-    .switch-button .switch-button__label:before { transition: .2s; display: block; position: absolute; width: 2vh; height: 2vh;
+    .switch-button .switch-button__label:before { transition: .2s; display: block; position: absolute; width: 3vh; height: 3vh;
         background-color: var(--color-button); content: ''; border-radius: 50%; box-shadow: inset 0px 0px 0px 1px var(--color-black);}
     .switch-button .switch-button__checkbox:checked + .switch-button__label { background-color: var(--color-green);}
     .switch-button .switch-button__checkbox:checked + .switch-button__label:before {transform: translateX(5vw);}
 
-    #politica {position:absolute; margin-top: 0.25vh; margin-left: 20px; display:inline-block; color:#000000;}
-    #avisLegal {position:absolute; margin-top: 0.5vh; margin-left: 20px; display:inline-block;  color:#000000;}
+    #politica {position:absolute; margin-top: 1.5vh; margin-left: 20px; display:inline-block; color:#000000; font-weight: bold;}
+        #politica:active {text-decoration: underline; cursor:pointer;}
+    #avisLegal {position:absolute; margin-top: 1.75vh; margin-left: 20px; display:inline-block;  color:#000000; font-weight: bold;}
+        #avisLegal:active {text-decoration: underline; cursor:pointer;}
 
-    .switch-button2 { display: inline-block; margin-top:0.5vh; margin-left:50px; }
+    .switch-button2 { display: inline-block; margin-top:1vh; margin-left:50px; }
     .switch-button2 .switch-button__checkbox2 { display: none;}
-    .switch-button2 .switch-button__label2 { background-color: var(--color-red); width: 8vw; height: 2vh; border-radius: 1vh;
+    .switch-button2 .switch-button__label2 { background-color: var(--color-red); width: 10vw; height: 3vh; border-radius: 2vh;
         display: inline-block; position: relative;}
-    .switch-button2 .switch-button__label2:before { transition: .2s; display: block; position: absolute; width: 2vh; height: 2vh;
+    .switch-button2 .switch-button__label2:before { transition: .2s; display: block; position: absolute; width: 3vh; height: 3vh;
         background-color: var(--color-button); content: ''; border-radius: 50%; box-shadow: inset 0px 0px 0px 1px var(--color-black);}
     .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2 { background-color: var(--color-green);}
     .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2:before {transform: translateX(5vw);}
@@ -123,7 +120,7 @@ textarea {margin-top:10px; margin-left:80px; width:600px; height: 150px; padding
 
 
 
-#titol-zonainsegura { display: inline-block; width:380px; text-align: center; margin-top:20px; padding:20px; background-color:rgb(151, 101, 174);
+#titol-zonainsegura { display: inline-block; height:1.8vh; width:55vw; text-align: center; margin-top:3vh; padding:1.5vh; background-color:rgb(151, 101, 174);
 border-bottom-right-radius: 20px; border-top-right-radius: 20px;}
 
 #boto-centrarMapa {display:inline-block; font-size:32px; margin-left: 20px; color:#000000; padding:20px; background-color: rgb(217, 195, 222);
@@ -168,8 +165,8 @@ border-radius:20px; font-weight:bold;}
         color: #222; outline: none;}
     .select-css option { font-weight:normal;}
 
-    #boto-marcarMapa {display:inline-block; font-size:32px; margin-left: 20px; color:#000000; padding:20px; background-color: rgb(217, 195, 222);
-        border-radius:20px; font-weight:bold;}
+    #boto-marcarMapa {display:inline-block; margin-left: 20px; color:#000000; padding:20px; background-color: rgb(217, 195, 222);
+        border-radius:20px; font-weight:bold; font-size:1.5vh;} /* 1.5vh funciona bé en aquest cas */
             #boto-marcarMapa:active {background-color: rgb(151, 101, 174); color: #ffffff; cursor:pointer; }
 
     
@@ -242,9 +239,15 @@ border-radius:20px; font-weight:bold;}
 
 
 
-/* zonaInsegura.html */
+/* Eines */
+
+.salt {line-height:0;} /*Fa un salt de línia sense ocupar espai; per compatibilitat en tots els dispositius*/
 
 
+/* resultats.html */
+
+#contenidor-mapa-resultats {position:absolute; margin-top: 3vh; margin-left:10vw; width:80vw; height:40vh; border: solid 2px #000000;
+    z-index: 100; color:blue;}
 
 
 
@@ -329,3 +332,20 @@ input[type=text] {
     padding: 1rem;
     font-size: medium;
     }
+
+  
+
+   @media (min-width: 721px) {
+
+    #boto-consultar-mapa {width: 350px;}
+    #boto-consultar-mapa:hover {background-color:purple;}
+            .icona-maps {width:40px; height:40px;  }
+            .icona-maps-text {font-size:25px; display:inline-block; margin-top:25px; margin-left:75px;}
+
+    #boto-necessites-ajuda {width: 350px;}
+    .icona-tlf {position:absolute; width:40px; height:40px; float:left; margin-top:20px; margin-left:20px; background-color: lime;
+        border-radius:5px; }
+        .icona-tlf-text {font-size:25px; display:inline-block; margin-left:75px; margin-top:7%;  }
+
+   }
+

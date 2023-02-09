@@ -28,7 +28,7 @@ function initialize2() {
         
         styles: [{ // VISIBLE BARS RESTAURANTS
             featureType: "poi",
-            stylers: [{ visibility: "off" }],
+            stylers: [{ visibility: "on" }],
         }, {
             featureType: "poi.park",
             stylers: [{ visibility: "on" }],
@@ -40,7 +40,8 @@ function initialize2() {
             featureType: "transit",
             stylers: [{ visibility: "off" }],
         }],
-        disableDoubleClickZoom:true
+        disableDoubleClickZoom:true,
+        clickableIcons: false
     };
     
     
