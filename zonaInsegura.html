@@ -52,22 +52,24 @@
     <body id="caixaCos">
 
             
-        </script>
+        
 
         <div class="header">
             <!--<span class="menu-desplegable">&#8801</span> -->
             <h1><a href="index.html"><img src="images/logo_header.jpeg" /></a></h1>
         </div>
+
         <div class="cosPrincipal">
+            <div class="titol-i-boto">
+                <div id="titol-zonainsegura">
+                    <h2>Marcar Zona Insegura</h2>
+                </div>
 
-            <div id="titol-zonainsegura">
-                <h2>Marcar Zona Insegura</h2>
+                <button id="boto-centrarMapa">
+                    <p>Centrar Mapa</p>
+                </button>
             </div>
-
-            <button id="boto-centrarMapa">
-                <p>Centrar Mapa</p>
-            </button>
-
+            
             <script>
                 document.getElementById("boto-centrarMapa").addEventListener("click", function( event ) {
                     map2.setCenter(new google.maps.LatLng(41.727751, 1.827424));
@@ -76,8 +78,8 @@
                 
             </script>
 
-            
-<div id="embolcallZones">
+            <div id="embolcallZones">
+
             <!-- Reverse Geocoding attempt-->
 
             <div id="contenidor-mapa">
@@ -87,8 +89,8 @@
                   
             </div>
 
-        <div class="salt">
-        </div>   
+            <div class="salt"> <!-- Evita indentacions inecessàries amb pantalles grans -->
+            </div>   
             
             
             <label class="formulari-insegura">
@@ -111,7 +113,7 @@
            
             
 
-            <!-- Try changing to FORM
+            <!-- Provar més endavant de canviar-ho a tipus form (compatibilitat Firebase)
             
             <form>
                 <select id="ddlViewBy">
@@ -131,13 +133,15 @@
                 Comentari:
             </h3>
 
-            <form><textarea class="comentari-formulari-text"></textarea></form> 
+            <form><textarea></textarea></form> 
 
-            <h3 class="comentari-formulari">
+            <h3 class="comentari-formulari2">
                 Hora:
             </h3>
 
-            
+            <div class="salt"> <!-- Evita indentacions inecessàries amb pantalles grans -->
+            </div>   
+
             <input class="input-time" type="time" id="appt" name="appt"
             min="09:00" max="18:00" required>
             
