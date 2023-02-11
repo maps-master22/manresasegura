@@ -16,7 +16,7 @@ p {font-size:22px; text-align:left; }
 strong {font-weight: bold;}
 em {font-family:Verdana, cursive;}
 
-textarea {margin-top:10px; margin-left:10px; width:600px; height: 150px; padding: 12px 20px; box-sizing: border-box;
+textarea {margin-top:10px; margin-left:10px; width:600px; height: 9vh; padding: 12px 20px; box-sizing: border-box;
     border: 2px solid #ccc; border-radius: 4px; background-color: rgba(246, 201, 250, 0.118); font-size: 16px;resize: none;}
 
 
@@ -25,11 +25,11 @@ textarea {margin-top:10px; margin-left:10px; width:600px; height: 150px; padding
 #caixaCos { width: 100vw; height:100vh; margin: 0 auto; padding:0; display: flex; flex-direction: column;
     -ms-flex-direction: column; background: #ffffff; }
 
-.header { height: 20vh; background-color: rgb(216, 198, 225); z-index: 100;}
+.header { height: 18vh; background-color: rgb(216, 198, 225); z-index: 100;}
     .header h1 {text-align:center; color: #000000; }
 
 
-.cosPrincipal { flex:1; background-color:#ffffff; z-index:100;}
+.cosPrincipal {height:68vh; background-color:#ffffff; z-index:100;}
 	#embolcallZones { text-align: center; }
     
     #zonaInsegura {width: 220px; height:4.5vh; text-align:center; padding:5vh 0; margin-top:15vh;
@@ -71,13 +71,13 @@ textarea {margin-top:10px; margin-left:10px; width:600px; height: 150px; padding
                 border-radius:5px; }
                 .icona-tlf-text {font-size:25px; display:inline-block; margin-left:75px; margin-top:2vh;  }
 
-        #mes-info {margin:auto; margin-top:5vh; color: #000000; }
-                #mes-info p {text-align:center;}
+        #mes-info {margin:auto; margin-top:5vh; height:1vh; color: #000000; }
+                #mes-info p {text-align:center}
                 #mes-info p:hover {text-decoration:underline; cursor:pointer;}
             
         
 
-.footer {clear: both; height:10vh; background-color: rgb(216, 198, 225); z-index: 100;}
+.footer {position:fixed; bottom:0; left:0; right:0; margin:0 auto; width:720px; clear: both; height:14vh; background-color: rgb(216, 198, 225); z-index: 100; margin-top:15vh}
 
     :root {
     --color-green: #00a878;
@@ -116,7 +116,8 @@ textarea {margin-top:10px; margin-left:10px; width:600px; height: 150px; padding
 /* zonaInsegura.html MODIFICAT */
 
 
-#titol-zonainsegura { display: inline-block; height:1.8vh; width:400px; /* width: 55vw*/ text-align: center; margin-top:3vh;
+
+#titol-zonainsegura { display: inline-block; height:1.8vh; width:400px; text-align: center; margin-top:3vh;
  padding:1.5vh 0; background-color:rgb(151, 101, 174); border-bottom-right-radius: 20px; border-top-right-radius: 20px;}
 
 #boto-centrarMapa {display:inline-block; font-size:32px; margin-left: 20px; color:#000000; padding:20px; background-color: rgb(217, 195, 222);
@@ -128,7 +129,7 @@ border-radius:20px; font-weight:bold;}
 
 
 
-    #contenidor-mapa {position:absolute; left:50%; margin-left:-300px; margin-top: 80px; width:600px; height:28vh; border: solid 2px #000000;
+    #contenidor-mapa {position:absolute; left:50%; margin-left:-300px; margin-top: 4vh; width:600px; height:28vh; border: solid 2px #000000;
      z-index: 100; color:blue;}
         #latlng {position:absolute; width: 350px; left: 1%; z-index: 5; background-color: #fff; padding: 5px; border: 1px solid #999;
         text-align: center; line-height: 30px; padding-left: 10px; }
@@ -143,8 +144,8 @@ border-radius:20px; font-weight:bold;}
 
 
 
-     .select-css { margin-top:520px; margin-left:-200px; font-size: 25px; width: 400px;
-        color: #000000; padding: 5px; box-sizing: border-box; border: 1px solid #aaa; box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+     .select-css { font-family: 'Libre Baskerville', serif; margin-top:35vh; margin-left:-200px; font-size: 25px; width: 400px; height:5.5vh;
+        color: #000000; padding: 1.5vh 15px; box-sizing: border-box; border: 0.15vmin solid #aaa; box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
         border-radius: 10px; -moz-appearance: none; -webkit-appearance: none; appearance: none;
         background-color: #fff; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
         linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); background-repeat: no-repeat, repeat; background-position: right .7em top 50%, 0 0;
@@ -161,15 +162,15 @@ border-radius:20px; font-weight:bold;}
 
     
 
-    .comentari-formulari {color:#000000; margin-top:2vh; margin-left:-410px; }
+    .comentari-formulari {color:#000000; margin-top:3vh; margin-left:-410px; height:1.8vh; }
     
-    .comentari-formulari2 {color:#000000; margin-top:2vh; margin-left:-485px; }
+    .comentari-formulari2 {color:#000000; margin-top:2vh; margin-left:-485px; height:1.8vh;  }
 
 
-    .input-time {margin-top:1vh; margin-left: 20px; height:5vh; width:200px; font-size:30px; padding:10px; display:inline-block; 
-        background-color: rgba(246, 201, 250, 0.118); border: solid 1px grey;}
+    .input-time {margin-top:1vh; margin-left: 20px; height:5vh; width:200px; font-size:30px; padding:1vh 20px; display:inline-block; 
+        text-align: center; background-color: rgba(246, 201, 250, 0.118); border: solid 1px grey;}
 
-    #boto-zonaInsegura {display:inline-block; margin-top:-80px; margin-left:275px; height:5vh; width:120px; font-size:25px;
+    #boto-zonaInsegura {position:relative; display:inline-block; top:-10px; margin-left:275px; height:5vh; width:120px; font-size:25px;
     color: rgb(151,101,174); background-color: #ffffff; font-weight: bold; margin-bottom:20px; }
         #boto-zonaInsegura:active {background-color:rgb(151, 101, 174); color: #ffffff; cursor:pointer;}
 
@@ -212,7 +213,6 @@ border-radius:20px; font-weight:bold;}
 
 
 
-.footer-inexistent {height:50px; background-color: #ffffff; z-index: 100; min-height:80px;}
 
 
 /* Assetjament Transport Públic */
