@@ -117,10 +117,14 @@ textarea {margin-top:10px; margin-left:10px; width:600px; height: 9vh; padding: 
 
 
 
-#titol-zonainsegura { display: inline-block; height:1.8vh; width:400px; text-align: center; margin-top:3vh;
+#titol-curt { display: inline-block; height:1.8vh; width:400px; text-align: center; margin-top:3vh;
  padding:1.5vh 0; background-color:rgb(151, 101, 174); border-bottom-right-radius: 20px; border-top-right-radius: 20px;}
 
-#boto-centrarMapa {display:inline-block; font-size:32px; margin-left: 20px; color:#000000; padding:20px; background-color: rgb(217, 195, 222);
+
+
+
+
+#boto-centrarMapa {display:inline-block; font-size:32px; margin-left: 20px; color:#000000; padding:2vh 20px; background-color: rgb(217, 195, 222);
 border-radius:20px; font-weight:bold;}
     #boto-centrarMapa:active {background-color: rgb(151, 101, 174); color: #ffffff; cursor:pointer; }
 
@@ -184,9 +188,6 @@ border-radius:20px; font-weight:bold;}
 
 /* Assetjament pantalla inicial */
 
-#titol-assetjament { display: inline-block; width:480px; text-align: center; margin-top:20px; padding:20px; background-color:rgb(151, 101, 174);
-    border-bottom-right-radius: 20px; border-top-right-radius: 20px;}
-
 .entitats-recolzament {font-size:0; padding-bottom:60px; }
     .entitats-recolzament p {display:inline-block; width:240px; margin-top:40px;}
     .entitat-recolzament-esquerra {margin-left:120px;}
@@ -211,8 +212,16 @@ border-radius:20px; font-weight:bold;}
 
     #formulari-transport p {font-size:30px; text-align:center;}
 
+/* Assetjament Via Pública */
 
+    
+    #titol-llarg { display: inline-block; height:4vh; width:350px; text-align: center; margin-top:3vh; 
+        padding:1.5vh 0; background-color:rgb(151, 101, 174); border-bottom-right-radius: 20px; border-top-right-radius: 20px;}
+    
+        #boto-centrarMapa2 {display:inline-block; font-size:32px; margin-left: 20px; position:relative; top:1vh;  transform: translateY(-2.5vh);
+             color:#000000; padding:2vh 20px; background-color: rgb(217, 195, 222); border-radius:20px; font-weight:bold;}
 
+    
 
 
 /* Assetjament Transport Públic */
