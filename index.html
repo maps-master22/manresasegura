@@ -47,108 +47,108 @@
     
     <body>
         <div id="caixaCos">
-        <div class="header">
-            <!--<span class="menu-desplegable">&#8801</span> -->
-            <h1><img src="images/logo_header.jpeg" /></a></h1>
+            <div class="header">
+                <!--<span class="menu-desplegable">&#8801</span> -->
+                <h1><img src="images/logo_header.jpeg" /></a></h1>
 
-        </div>
-        <div class="cosPrincipal">
-
-	    <div id="embolcallZones">
-		    <div id="zonaInsegura">
-
-		        <h2>Marcar Zona</h2> 
-		        <h2>Insegura</h2>
-		    </div>
-
-		    <script type="text/javascript">
-		        
-		    </script>
-
-		    
-		    <div id="zonaAssetjament">
-		        <h2>Comunicar</h2>
-		        <h2>Assetjament</h2>
-		    </div>
-	    </div>
-
-        
-            <div id="boto-consultar-mapa">
-                <p><img class="icona-maps" src="images/icona-maps.png" /></p>
-                <p class="icona-maps-text">Consultar Mapa</p>
             </div>
+            <div class="cosPrincipal">
 
-            
+                <div id="embolcallZones">
+                    <div id="zonaInsegura">
 
-            <div id="boto-necessites-ajuda" onclick="window.open('tel:112');">
-                <p><img class="icona-tlf" src="images/icona_telefon.png"/></p>
-                <p class="icona-tlf-text">Necessites Ajuda?</p>
-            </div>
+                        <h2>Marcar Zona</h2> 
+                        <h2>Insegura</h2>
+                    </div>
 
-            <div id="mes-info"><p>Saber-ne més</p></div>
+                    <script type="text/javascript">
+                        
+                    </script>
 
+                    
+                    <div id="zonaAssetjament">
+                        <h2>Comunicar</h2>
+                        <h2>Assetjament</h2>
+                    </div>
+                </div>
 
-            <script type="text/javascript">
-		        document.getElementById("zonaInsegura").onclick = function () {
-		            location.href= "zonaInsegura.html" ;
-		        };
                 
-                document.getElementById("zonaAssetjament").onclick = function () {
-		            location.href= "assetjament.html" ;
-		        };
+                    <div id="boto-consultar-mapa">
+                        <p><img class="icona-maps" src="images/icona-maps.png" /></p>
+                        <p class="icona-maps-text">Consultar Mapa</p>
+                    </div>
 
-                document.getElementById("boto-consultar-mapa").onclick = function () {
-		            location.href= "resultats.html" ;
-		        };
+                    
 
-		    </script>
+                    <div id="boto-necessites-ajuda" onclick="window.open('tel:112');">
+                        <p><img class="icona-tlf" src="images/icona_telefon.png"/></p>
+                        <p class="icona-tlf-text">Necessites Ajuda?</p>
+                    </div>
 
-        </div>
-        
-        <div class="footer">
-            <div class="switch-button">
-                <!-- Checkbox -->
-                <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
-                <!-- Botón -->
-                <label for="switch-label" class="switch-button__label"></label>
+                    <div id="mes-info"><p>Saber-ne més</p></div>
+
+
+                    <script type="text/javascript">
+                        document.getElementById("zonaInsegura").onclick = function () {
+                            location.href= "zonaInsegura.html" ;
+                        };
+                        
+                        document.getElementById("zonaAssetjament").onclick = function () {
+                            location.href= "assetjament.html" ;
+                        };
+
+                        document.getElementById("boto-consultar-mapa").onclick = function () {
+                            location.href= "resultats.html" ;
+                        };
+
+                    </script>
+
             </div>
-            <p id="politica">Política de Privacitat</p>
-
-            <br>
-            <div class="switch-button2">
-                <!-- Checkbox -->
-                <input type="checkbox" name="switch-button2" id="switch-label2" class="switch-button__checkbox2">
-                <!-- Botón -->
-                <label for="switch-label2" class="switch-button__label2"></label>
-            </div>    
             
-            <p id="avisLegal">Avís Legal</p>
+            <div class="footer">
+                <div class="switch-button">
+                    <!-- Checkbox -->
+                    <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
+                    <!-- Botón -->
+                    <label for="switch-label" class="switch-button__label"></label>
+                </div>
+                <p id="politica">Política de Privacitat</p>
+
+                <br>
+                <div class="switch-button2">
+                    <!-- Checkbox -->
+                    <input type="checkbox" name="switch-button2" id="switch-label2" class="switch-button__checkbox2">
+                    <!-- Botón -->
+                    <label for="switch-label2" class="switch-button__label2"></label>
+                </div>    
+                
+                <p id="avisLegal">Avís Legal</p>
 
 
+            </div>
+
+            <script>
+        
+                window.addEventListener('load', () => {
+                registerSW();
+                });
+            
+                // Register the Service Worker
+                async function registerSW() {
+                if ('serviceWorker' in navigator) {
+                    try {
+                    await navigator
+                            .serviceWorker
+                            .register('serviceworker.js');
+                    }
+                    catch (e) {
+                    console.log('SW registration failed');
+                    }
+                }
+                }
+            
+            
+            </script>
         </div>
-
-        <script>
-	
-            window.addEventListener('load', () => {
-            registerSW();
-            });
-        
-            // Register the Service Worker
-            async function registerSW() {
-            if ('serviceWorker' in navigator) {
-                try {
-                await navigator
-                        .serviceWorker
-                        .register('serviceworker.js');
-                }
-                catch (e) {
-                console.log('SW registration failed');
-                }
-            }
-            }
-        
-        
-        </script>
-    </div>
     </body>
 </html>

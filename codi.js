@@ -47,6 +47,7 @@ function initialize2() {
     
     
     map2 = new google.maps.Map(document.getElementById('map-canvas-inseg'), mapOptions2);
+  
     
     // Geocodificació inversa
     const geocoder = new google.maps.Geocoder(); 
@@ -179,6 +180,17 @@ var coord;
 
 }
 window.addEventListener('load', initialize2);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

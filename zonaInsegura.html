@@ -49,215 +49,216 @@
 
     </head>
     
-    <body id="caixaCos">
+    <body>
 
             
+        <div  id="caixaCos">
+
+            <div class="header">
+                <!--<span class="menu-desplegable">&#8801</span> -->
+                <h1><a href="index.html"><img src="images/logo_header.jpeg" /></a></h1>
+            </div>
+
+            <div class="cosPrincipal">
+
+                <div class="titol-i-boto">
+                    <div id="titol-curt">
+                        <h2>Marcar Zona Insegura</h2>
+                    </div>
+
+                    <button id="boto-centrarMapa">
+                        <p>Centrar Mapa</p>
+                    </button>
+                </div>
+                
+                <script>
+                    document.getElementById("boto-centrarMapa").addEventListener("click", function( event ) {
+                        map2.setCenter(new google.maps.LatLng(41.727751, 1.827424));
+                        map2.setZoom(13);
+                    });
+                    
+                </script>
+
+                <div id="embolcallZones">
+
+                    <!-- Reverse Geocoding attempt-->
+
+                    <div id="contenidor-mapa">
+                        <div id="map-canvas-inseg"></div>
+                            <input id="latlng" type="text" />
+                            <input id="geocodif-inv" type="button" value="Buscar" />
+                        
+                    </div>
+
+                    <div class="salt"> <!-- Evita indentacions inecessàries amb pantalles grans -->
+                    </div>   
+                
+                
+                    <label class="formulari-insegura">
+                        <span>Com és l'espai?</span>
+                        <select class="select-css"">
+                            <option hidden>Característiques de la zona</option>
+                            <option>Baixa il·luminació</option>
+                            <option>Ambient hostil</option>
+                            <option>Obstacle visual</option>
+                            <option>Passatges estrets</option>
+                            <option>Poc concurreguda</option>
+                        </select>
+                    </label>
         
+                
+                    <button id="boto-marcarMapa">
+                        <p>Sóc Aquí</p>
+                    </button>
 
-        <div class="header">
-            <!--<span class="menu-desplegable">&#8801</span> -->
-            <h1><a href="index.html"><img src="images/logo_header.jpeg" /></a></h1>
-        </div>
+            
+                
 
-        <div class="cosPrincipal">
-            <div class="titol-i-boto">
-                <div id="titol-curt">
-                    <h2>Marcar Zona Insegura</h2>
+                    <!-- Provar més endavant de canviar-ho a tipus form (compatibilitat Firebase)
+                    
+                    <form>
+                        <select id="ddlViewBy">
+                        <option value="1">test1</option>
+                        <option value="2" selected="selected">test2</option>
+                        <option value="3">test3</option>
+                        </select>
+                    </form> -->
+                
+                
+                
+
+
+                    
+
+                    <h3 class="comentari-formulari">
+                        Comentari:
+                    </h3>
+
+                    <form><textarea></textarea></form> 
+
+                    <h3 class="comentari-formulari2">
+                        Hora:
+                    </h3>
+
+                    <div class="salt"> <!-- Evita indentacions inecessàries amb pantalles grans -->
+                    </div>   
+
+                    <input class="input-time" type="time" id="appt" name="appt"
+                    min="09:00" max="18:00" required>
+                
+
+                
+                    <button id="boto-zonaInsegura" type="submit">
+                            Enviar
+                    </button>
+
                 </div>
 
-                <button id="boto-centrarMapa">
-                    <p>Centrar Mapa</p>
-                </button>
-            </div>
             
-            <script>
-                document.getElementById("boto-centrarMapa").addEventListener("click", function( event ) {
-                    map2.setCenter(new google.maps.LatLng(41.727751, 1.827424));
-                    map2.setZoom(13);
-                });
                 
-            </script>
+                <!-- Firebase attempt 18/01/2023 -->
 
-            <div id="embolcallZones">
-
-            <!-- Reverse Geocoding attempt-->
-
-            <div id="contenidor-mapa">
-                <div id="map-canvas-inseg"></div>
-                    <input id="latlng" type="text" />
-                    <input id="geocodif-inv" type="button" value="Buscar" />
-                  
-            </div>
-
-            <div class="salt"> <!-- Evita indentacions inecessàries amb pantalles grans -->
-            </div>   
-            
-            
-            <label class="formulari-insegura">
-                <span>Com és l'espai?</span>
-                <select class="select-css"">
-                    <option hidden>Característiques de la zona</option>
-                    <option>Baixa il·luminació</option>
-                    <option>Ambient hostil</option>
-                    <option>Obstacle visual</option>
-                    <option>Passatges estrets</option>
-                    <option>Poc concurreguda</option>
-                </select>
-            </label>
-      
-            
-            <button id="boto-marcarMapa">
-                <p>Sóc Aquí</p>
-            </button>
-
-           
-            
-
-            <!-- Provar més endavant de canviar-ho a tipus form (compatibilitat Firebase)
-            
-            <form>
-                <select id="ddlViewBy">
-                <option value="1">test1</option>
-                <option value="2" selected="selected">test2</option>
-                <option value="3">test3</option>
-                </select>
-            </form>
-            
-            
-            -->
-
-
+                <script type="module">
+                    // Import the functions you need from the SDKs you need
+                    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+                    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+                    import { getFirestore, getDocs, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+                    // TODO: Add SDKs for Firebase products that you want to use
+                    // https://firebase.google.com/docs/web/setup#available-libraries
                 
-
-            <h3 class="comentari-formulari">
-                Comentari:
-            </h3>
-
-            <form><textarea></textarea></form> 
-
-            <h3 class="comentari-formulari2">
-                Hora:
-            </h3>
-
-            <div class="salt"> <!-- Evita indentacions inecessàries amb pantalles grans -->
-            </div>   
-
-            <input class="input-time" type="time" id="appt" name="appt"
-            min="09:00" max="18:00" required>
-            
-
-            
-            <button id="boto-zonaInsegura" type="submit">
-                    Enviar
-            </button>
-
-            </div>
-
-        
-            
-            <!-- Firebase attempt 18/01/2023 -->
-
-            <script type="module">
-                // Import the functions you need from the SDKs you need
-                import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-                import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-                import { getFirestore, getDocs, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-                // TODO: Add SDKs for Firebase products that you want to use
-                // https://firebase.google.com/docs/web/setup#available-libraries
-              
-                // Your web app's Firebase configuration
-                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-                const firebaseConfig = {
-                  apiKey: "AIzaSyBJ9P5MdZfkMp2CmYnEq0LIAmEjTxGKmrw",
-                  authDomain: "manresaseg.firebaseapp.com",
-                  projectId: "manresaseg",
-                  storageBucket: "manresaseg.appspot.com",
-                  messagingSenderId: "246890869191",
-                  appId: "1:246890869191:web:ceb75359b5439cd75fe9e2",
-                  measurementId: "G-6T53334K6V"
-                };
-              
-                // Initialize Firebase
+                    // Your web app's Firebase configuration
+                    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                    const firebaseConfig = {
+                    apiKey: "AIzaSyBJ9P5MdZfkMp2CmYnEq0LIAmEjTxGKmrw",
+                    authDomain: "manresaseg.firebaseapp.com",
+                    projectId: "manresaseg",
+                    storageBucket: "manresaseg.appspot.com",
+                    messagingSenderId: "246890869191",
+                    appId: "1:246890869191:web:ceb75359b5439cd75fe9e2",
+                    measurementId: "G-6T53334K6V"
+                    };
                 
-                const app = initializeApp(firebaseConfig);
-                const analytics = getAnalytics(app);
+                    // Initialize Firebase
+                    
+                    const app = initializeApp(firebaseConfig);
+                    const analytics = getAnalytics(app);
 
 
-                const db = getFirestore();
+                    const db = getFirestore();
 
-                const comentari = document.querySelector(".comentari-formulari-text");
-                const incidencia = document.querySelector(".select-css");
-                const hora = document.querySelector(".input-time"); 
+                    const comentari = document.querySelector(".comentari-formulari-text");
+                    const incidencia = document.querySelector(".select-css");
+                    const hora = document.querySelector(".input-time"); 
 
-                document.getElementById("boto-zonaInsegura").onclick = function () {
+                    document.getElementById("boto-zonaInsegura").onclick = function () {
 
-                db.collection("zonaInsegura").doc("LA").set({
-                Incidència: incidencia.value,
-                Comentari: comentari.value,
-                Hora: hora.value,
-                Coordenada: coord.value
-                })
-                .then(() => {
-                console.log("Document successfully written!");
-                })
-                .catch((error) => {
-                console.error("Error writing document: ", error);
-                });
-                };
-
-                /*
-                document.getElementById("boto-zonaInsegura").onclick = function () {
-                const comentari = document.querySelector(".comentari-formulari-text");
-                const incidencia = document.querySelector(".select-css");
-                const hora = document.querySelector(".input-time"); 
-                // alert (comentari.value);
-                alert(incidencia.value);
-                alert(hora.value + "h");
-                
-                db.collection("contact-form").doc()
-                .set({
-                    Comentari: comentari.value,
+                    db.collection("zonaInsegura").doc("LA").set({
                     Incidència: incidencia.value,
+                    Comentari: comentari.value,
                     Hora: hora.value,
                     Coordenada: coord.value
-                })
-                .then ( () =>
-                location.href= "index.html" 
-                );
-                
-            };
-            */
-              </script>
+                    })
+                    .then(() => {
+                    console.log("Document successfully written!");
+                    })
+                    .catch((error) => {
+                    console.error("Error writing document: ", error);
+                    });
+                    };
+
+                    /*
+                    document.getElementById("boto-zonaInsegura").onclick = function () {
+                    const comentari = document.querySelector(".comentari-formulari-text");
+                    const incidencia = document.querySelector(".select-css");
+                    const hora = document.querySelector(".input-time"); 
+                    // alert (comentari.value);
+                    alert(incidencia.value);
+                    alert(hora.value + "h");
+                    
+                    db.collection("contact-form").doc()
+                    .set({
+                        Comentari: comentari.value,
+                        Incidència: incidencia.value,
+                        Hora: hora.value,
+                        Coordenada: coord.value
+                    })
+                    .then ( () =>
+                    location.href= "index.html" 
+                    );
+                    
+                };
+                */
+                </script>
+
+
+            </div>
+            
+
+            <script>
+        
+                window.addEventListener('load', () => {
+                registerSW();
+                });
+            
+                // Register the Service Worker
+                async function registerSW() {
+                if ('serviceWorker' in navigator) {
+                    try {
+                    await navigator
+                            .serviceWorker
+                            .register('serviceworker.js');
+                    }
+                    catch (e) {
+                    console.log('SW registration failed');
+                    }
+                }
+                }
+            
+            
+            </script>
 
 
         </div>
-        
-
-        <script>
-	
-            window.addEventListener('load', () => {
-            registerSW();
-            });
-        
-            // Register the Service Worker
-            async function registerSW() {
-            if ('serviceWorker' in navigator) {
-                try {
-                await navigator
-                        .serviceWorker
-                        .register('serviceworker.js');
-                }
-                catch (e) {
-                console.log('SW registration failed');
-                }
-            }
-            }
-        
-        
-        </script>
-
-
-
 
     </body>
 </html>

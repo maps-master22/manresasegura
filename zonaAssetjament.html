@@ -41,7 +41,7 @@
     </head>
     
     <body id="caixaCos">
-
+        <div id="caixaCos">
         <div class="header">
             <h1><a href="index.html"><img src="images/logo_header.jpeg" /></a></h1> 
         </div>
@@ -56,7 +56,7 @@
             <button id="boto-centrarMapa2">
                 <p>Centrar Mapa</p>
             </button>
-        </div>
+            </div>
             <script>
                 document.getElementById("boto-centrarMapa").addEventListener("click", function( event ) {
                     map2.setCenter(new google.maps.LatLng(41.727751, 1.827424));
@@ -64,69 +64,71 @@
                 });
             </script>
 
-            <div id="contenidor-mapa">
-                <div id="map-canvas-inseg"></div>
-            </div>
+            <div id="embolcallZones">
 
-            
-            <label>
-                <span>Tipus d'Assetjament</span>
-                <select class="select-css">
-                    <option hidden>Tipus d'Assetjament</option>
-                    <option>Mirades sexuades no desitjades</option>
-                    <option>Xiulades o cops de clàxon</option>
-                    <option>Comentaris masclistes o crits invasius</option>
-                    <option>Invasió continuada de l'espai personal</option>
-                    <option>Tocaments puntuals o continus no desitjats</option>
-                    <option>Acorralaments</option>
-                    <option>Violació amb intimidació i/o violència física</option>
-                </select>
-                </label>
+                <div id="contenidor-mapa">
+                    <div id="map-canvas-inseg"></div>
+                </div>
 
-                <button id="boto-marcarMapa"> <!-- No únic element amb aquest nom-->
-                    <p>Sóc Aquí</p>
+                
+                <label>
+                    <span>Tipus d'Assetjament</span>
+                    <select class="select-css" id="correccioSelect">
+                        <option hidden>Tipus d'Assetjament</option>
+                        <option>Mirades sexuades no desitjades</option>
+                        <option>Xiulades o cops de clàxon</option>
+                        <option>Comentaris masclistes o crits invasius</option>
+                        <option>Invasió continuada de l'espai personal</option>
+                        <option>Tocaments puntuals o continus no desitjats</option>
+                        <option>Acorralaments</option>
+                        <option>Violació amb intimidació i/o violència física</option>
+                    </select>
+                    </label>
+
+                    <button id="boto-marcarMapa"> <!-- No únic element amb aquest nom-->
+                        <p>Sóc Aquí</p>
+                    </button>
+                    
+                    
+                    <!--
+                <form action="#">
+                    <label for="incidencia">Incidència</label>
+                    <select name="incidencies" id="incidencia">
+                    <option value="selecciona">Selecciona un tipus d'Incidència</option>
+                    <option value="mirades-sexuades">Mirades sexuades no desitjades</option>
+                    <option value="sons">Xiulades o cops de clàxon</option>
+                    <option value="comentaris">Comentaris masclistes o crits invasius</option>
+                    <option value="invasio">Invasió continuada de l'espai personal</option>
+                    <option value="tocaments">Tocaments puntuals o continus no desitjats</option>
+                    <option value="acorralaments">Acorralaments</option>
+                    <option value="violacio">Violació amb intimidació i/o amb violència física</option>
+                    </select>
+                    <input type="submit" value="Submit" />
+            </form>
+
+    -->
+
+
+
+                <h3 class="comentari-formulari">
+                    Comentari:
+                </h3>
+
+                <form><textarea></textarea></form>
+
+                <h3 class="comentari-formulari">
+                    Hora:
+                </h3>
+
+                <!--<form><textarea class="hora-formulari"></textarea></form>-->
+                <input class="input-time" type="time" id="appt" name="appt"
+                min="09:00" max="18:00" required>
+
+                
+                <button id="boto-zonaInsegura">
+                        Enviar
                 </button>
-                
-                
-                <!--
-            <form action="#">
-                <label for="incidencia">Incidència</label>
-                <select name="incidencies" id="incidencia">
-                <option value="selecciona">Selecciona un tipus d'Incidència</option>
-                  <option value="mirades-sexuades">Mirades sexuades no desitjades</option>
-                  <option value="sons">Xiulades o cops de clàxon</option>
-                  <option value="comentaris">Comentaris masclistes o crits invasius</option>
-                  <option value="invasio">Invasió continuada de l'espai personal</option>
-                  <option value="tocaments">Tocaments puntuals o continus no desitjats</option>
-                  <option value="acorralaments">Acorralaments</option>
-                  <option value="violacio">Violació amb intimidació i/o amb violència física</option>
-                </select>
-                <input type="submit" value="Submit" />
-          </form>
-
--->
-
-
-
-            <h3 class="comentari-formulari">
-                Comentari:
-            </h3>
-
-            <form><textarea></textarea></form>
-
-            <h3 class="comentari-formulari">
-                Hora:
-            </h3>
-
-            <!--<form><textarea class="hora-formulari"></textarea></form>-->
-            <input class="input-time" type="time" id="appt" name="appt"
-            min="09:00" max="18:00" required>
-
-            
-            <button id="boto-zonaInsegura">
-                    Enviar
-            </button>
-            
+            </div>
         
 
         </div>
@@ -155,7 +157,7 @@
         
         
         </script>
-
+    </div>
     </body>
 </html>
 
