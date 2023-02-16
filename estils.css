@@ -1,3 +1,5 @@
+/* ##### Anulacions i etiquetes principals */
+
 ul,ol{list-style:none}
     h1,h2,h3,h4,h5,h6,pre,code{font-size:1em;}
     ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset{
@@ -6,93 +8,195 @@ ul,ol{list-style:none}
         a, a:hover, a:focus {text-decoration:none; color:inherit;}
     input[type=submit], input[type=reset], input[type=button] { *filter:chroma(color=#000000); }
 
-body {font-family: Verdana; font-size:24px; color:#ffffff; -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-h1 {font-size:32px; font-family: 'Libre Baskerville', serif;}
-h2 {font-size:28px; font-family: 'Libre Baskerville', serif;}
-h3 {font-size:26px; font-family: 'Libre Baskerville', serif; }
-h4 {font-size:24px;font-family: 'Libre Baskerville', serif; display:inline-block; color:#ffffff;}
-p {font-size:22px; text-align:left; } 
-strong {font-weight: bold;}
-em {font-family:Verdana, cursive;}
+body {
+    font-family: Verdana; 
+    font-size:24px; 
+    color:#ffffff; 
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+h1 {
+    font-size:32px; 
+    font-family: 'Libre Baskerville', serif;
+}
+
+h2 {
+    font-size:28px; 
+    font-family: 'Libre Baskerville', serif;
+}
+
+h3 {
+    font-size:26px; 
+    font-family: 'Libre Baskerville', serif; 
+}
+
+h4 {
+    font-size:24px;
+    font-family: 'Libre Baskerville', serif;
+    display:inline-block; 
+    color:#ffffff;
+}
+
+p {
+    font-size:22px;
+    text-align:left;
+} 
 
 
-textarea {margin-top:10px; margin-left:10px; width:600px; height: 9vh; padding: 12px 20px; box-sizing: border-box;
-    border: 2px solid #ccc; border-radius: 4px; background-color: rgba(246, 201, 250, 0.118); font-size: 16px;resize: none;}
+em {
+    font-family:Verdana, cursive;
+}
+
+
+textarea {
+    margin-top:10px; 
+    margin-left:10px; 
+    width:600px; 
+    height: 9vh; 
+    padding: 12px 20px; 
+    box-sizing: border-box;
+    border: 2px solid #ccc; 
+    border-radius: 4px; 
+    background-color: rgba(246, 201, 250, 0.118); 
+    font-size: 16px;
+    resize: none;
+}
+
+.gm-style-cc {
+    display:none; /* Truc CSS per treure botons molestos mapa */
+} 
 
 
 
 
-.gm-style-cc { display:none; } /* Truc CSS per treure botons molestos mapa */
-.salt {line-height:0;} /*Fa un salt de línia sense ocupar espai; per compatibilitat en tots els dispositius*/
+/* ##### Seccions ##### */
 
-/* Seccions */
-
-#caixaCos { width: 100vw; height:100vh; margin: 0 auto; padding:0; display: flex; flex-direction: column;
-    -ms-flex-direction: column; background: #ffffff; }
-
-    .header { height: 18vh; background-color: rgb(216, 198, 225); z-index: 100;}
-        .header h1 {text-align:center; color: #000000; }
-
-
-    .cosPrincipal {height:68vh; background-color:#ffffff; z-index:100;}
-        #embolcallZones { text-align: center; }
+#caixaCos { 
+    width: 100vw; 
+    height:100vh;
+    margin: 0 auto; 
+    padding:0; 
+    display: flex; 
+    flex-direction: column;
+    -ms-flex-direction: column; 
+    background: #ffffff; 
+}
 
 
-    .footer {position:fixed; bottom:0; left:0; right:0; margin:0 auto; width:720px; clear: both; height:14vh; background-color: rgb(216, 198, 225); z-index: 100; margin-top:15vh}
-
-        :root {
-        --color-green: #00a878;
-        --color-red: rgb(232,165,165);
-        --color-button: #fdffff;
-        --color-black: #000;
+    .header { 
+        height: 18vh; 
+        background-color: rgb(216, 198, 225); 
+        z-index: 100;
+    }
+        .header h1 {
+            text-align:center; 
+            color: #000000; 
         }
-        .switch-button { display: inline-block; margin-top:1vh; margin-left:50px; }
-        .switch-button .switch-button__checkbox { display: none;}
-        .switch-button .switch-button__label { background-color: var(--color-red); width: 75px; height: 3vh; border-radius: 2vh;
-            display: inline-block; position: relative;}
-        .switch-button .switch-button__label:before { transition: .2s; display: block; position: absolute; width: 3vh; height: 3vh;
-            background-color: var(--color-button); content: ''; border-radius: 50%; box-shadow: inset 0px 0px 0px 1px var(--color-black);}
-        .switch-button .switch-button__checkbox:checked + .switch-button__label { background-color: var(--color-green);}
-        .switch-button .switch-button__checkbox:checked + .switch-button__label:before {transform: translateX(40px);}
-
-        #politica {position:absolute; margin-top: 1.5vh; margin-left: 20px; display:inline-block; color:#000000; font-weight: bold;}
-            #politica:active {text-decoration: underline; cursor:pointer;}
-        #avisLegal {position:absolute; margin-top: 1.75vh; margin-left: 20px; display:inline-block;  color:#000000; font-weight: bold;}
-            #avisLegal:active {text-decoration: underline; cursor:pointer;}
-
-        .switch-button2 { display: inline-block; margin-top:1vh; margin-left:50px; }
-        .switch-button2 .switch-button__checkbox2 { display: none;}
-        .switch-button2 .switch-button__label2 { background-color: var(--color-red); width: 75px; height: 3vh; border-radius: 2vh;
-            display: inline-block; position: relative;}
-        .switch-button2 .switch-button__label2:before { transition: .2s; display: block; position: absolute; width: 3vh; height: 3vh;
-            background-color: var(--color-button); content: ''; border-radius: 50%; box-shadow: inset 0px 0px 0px 1px var(--color-black);}
-        .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2 { background-color: var(--color-green);}
-        .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2:before {transform: translateX(40px);}
 
 
+    .cosPrincipal {
+        height:68vh; 
+        background-color:#ffffff; 
+        z-index:100;
+    }
+        #embolcallZones { 
+            text-align: center; /* Centra blocs d'elements */
+        }
 
-    /* index.html */
+        .salt {
+            line-height:0; /*Fa un salt de línia sense ocupar espai (per compatibilitat en diferents dispositius) */
+        } 
+
+
+    .footer {
+        position:fixed; 
+        bottom:0; 
+        left:0; 
+        right:0; 
+        margin:0 auto; 
+        width:720px; 
+        clear: both; 
+        height:14vh; 
+        background-color: rgb(216, 198, 225); 
+        z-index: 100; 
+       margin-top:15vh /*  Comprovar si dona problemes ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ */
+    }
+
+    /* ##### Pàgines ##### */
+    /* 01) Pàgina: index.html */
     
-    #zonaInsegura {width: 220px; height:4.5vh; text-align:center; padding:5vh 0; margin-top:15vh;
-        background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:30px; box-shadow: 5px 10px 5px lightgray;}
-        #zonaInsegura:hover {background-color: purple; color: #ffffff; cursor: pointer; box-shadow: 5px 10px 5px gray;}
+        #zonaInsegura {
+            width: 220px; 
+            height:4.5vh; 
+            text-align:center; 
+            padding:5vh 0; 
+            margin-top:15vh;
+        background-color: rgb(216, 198, 225); 
+        color: #000000; display:inline-block; 
+        border-radius:30px; 
+        box-shadow: 5px 10px 5px lightgray;
+        }
+            #zonaInsegura:hover {
+                background-color: purple; 
+                color: #ffffff; 
+                cursor: pointer; 
+                box-shadow: 5px 10px 5px gray;
+            }
 
+        #zonaAssetjament {
+            width: 220px; 
+            height:4.5vh; 
+            text-align:center; 
+            padding:5vh 0; 
+            margin-top:15vh; 
+            margin-left: 30px; 
+        background-color: rgb(216, 198, 225); 
+        color: #000000; 
+        display:inline-block; 
+        border-radius:30px; 
+        box-shadow: 5px 10px 5px lightgray;
+        }
+        #zonaAssetjament:hover {
+            background-color: purple; 
+            color: #ffffff; 
+            cursor: pointer; 
+            box-shadow: 5px 10px 5px gray;
+        }
 
-    #zonaAssetjament {width: 220px; height:4.5vh; text-align:center; padding:5vh 0; margin-top:15vh; margin-left: 30px; 
-        background-color: rgb(216, 198, 225); color: #000000; display:inline-block; border-radius:30px; box-shadow: 5px 10px 5px lightgray;}
-        #zonaAssetjament:hover {background-color: purple; color: #ffffff; cursor: pointer; box-shadow: 5px 10px 5px gray;}
-
-
-        #boto-consultar-mapa {position:relative; width:300px; height: 6vh; background-color: rgb(151, 101, 174); 
-            margin:auto; margin-top: 5vh; border-radius:10px; cursor:pointer; }
-            #boto-consultar-mapa:hover {background-color:purple;}
-            .icona-maps {position:absolute; width:13%; height:50%; float:left; margin-top:1.5vh; margin-left:20px; background-color: lime;
-            border-radius:5px; }
-            .icona-maps-text {font-size:25px; display:inline-block; margin-top:2vh; margin-left:75px;}
+        #boto-consultar-mapa {
+            position:relative; 
+            width:300px; 
+            height: 6vh; 
+            background-color: rgb(151, 101, 174); 
+            margin:auto; 
+            margin-top: 5vh; 
+            border-radius:10px; 
+            cursor:pointer; 
+        }
+            #boto-consultar-mapa:hover {
+                background-color:purple;
+            }
+            .icona-maps {position:absolute; 
+                width:13%; 
+                height:50%; 
+                float:left; 
+                margin-top:1.5vh; 
+                margin-left:20px; 
+                background-color: lime;
+                border-radius:5px;
+            }
+            .icona-maps-text {
+                font-size:25px;
+                display:inline-block; 
+                margin-top:2vh; 
+                margin-left:75px;
+            }
         
-        #boto-necessites-ajuda {position:relative; width:300px; height: 6vh; background-color: rgb(151, 101, 174); 
-            margin:auto; margin-top: 3vh; border-radius:10px; cursor:pointer;}
             @keyframes glowing {
                 0% {
                 background-color: rgb(151, 101, 174);
@@ -107,156 +211,632 @@ textarea {margin-top:10px; margin-left:10px; width:600px; height: 9vh; padding: 
                 box-shadow: 0 0 3px purple;
                 }
             }
-        #boto-necessites-ajuda { animation: glowing 1300ms infinite; }
-            #boto-necessites-ajuda:active {background-color:purple;}
-                .icona-tlf {position:absolute; width:40px; height:40px; float:left; margin-top:1.5vh; margin-left:20px; background-color: lime;
-                border-radius:5px; }
-                .icona-tlf-text {font-size:25px; display:inline-block; margin-left:75px; margin-top:2vh;  }
+        #boto-necessites-ajuda {
+            position:relative; 
+            width:300px; 
+            height: 6vh; 
+            background-color: rgb(151, 101, 174); 
+            margin:auto; 
+            margin-top: 3vh; 
+            border-radius:10px; 
+            cursor:pointer; 
+            animation: glowing 1300ms infinite;
+        }
+            #boto-necessites-ajuda:active {
+                background-color:purple;
+            }
+                .icona-tlf {
+                    position:absolute; 
+                    width:40px; 
+                    height:40px; 
+                    float:left; 
+                    margin-top:1.5vh; 
+                    margin-left:20px; 
+                    background-color: lime;
+                    border-radius:5px; 
+                }
+                .icona-tlf-text {
+                    font-size:25px; 
+                    display:inline-block; 
+                    margin-left:75px; 
+                    margin-top:2vh;  
+                }
 
-        #mes-info {margin:auto; margin-top:5vh; height:1vh; color: #000000; }
-                #mes-info p {text-align:center}
-                #mes-info p:hover {text-decoration:underline; cursor:pointer;}
+        #mes-info {
+            margin:auto; 
+            margin-top:5vh; 
+            height:1vh; 
+            color: #000000; 
+        }
+            #mes-info p {
+                text-align:center
+            }
+                #mes-info p:hover {
+                    text-decoration:underline; 
+                    cursor:pointer;
+                }
             
+        :root {
+            --color-green: #00a878;
+            --color-red: rgb(232,165,165);
+            --color-button: #fdffff;
+            --color-black: #000;
+            }
+    
+        .switch-button {
+            display: inline-block; 
+            margin-top:1vh; 
+            margin-left:50px; 
+        }
+            .switch-button .switch-button__checkbox { 
+                display: none;
+            }
+            .switch-button .switch-button__label { 
+                background-color: var(--color-red); 
+                width: 75px; 
+                height: 3vh; 
+                border-radius: 2vh;
+                display: inline-block; 
+                position: relative;
+            }
+            .switch-button .switch-button__label:before { 
+                transition: .2s; 
+                display: block; 
+                position: absolute; 
+                width: 3vh; 
+                height: 3vh;
+                background-color: var(--color-button); 
+                content: ''; 
+                border-radius: 50%; 
+                box-shadow: inset 0px 0px 0px 1px var(--color-black);
+            }
+            .switch-button .switch-button__checkbox:checked + .switch-button__label { 
+                background-color: var(--color-green);
+            }
+            .switch-button .switch-button__checkbox:checked + .switch-button__label:before {
+                transform: translateX(40px);
+            }
+
+        #politica {
+            position:absolute; 
+            margin-top: 1.5vh; 
+            margin-left: 20px; 
+            display:inline-block; 
+            color:#000000; 
+            font-weight: bold;
+        }
+            #politica:active {
+                text-decoration: underline; 
+                cursor:pointer;
+            }
+
+        #avisLegal {
+            position:absolute; 
+            margin-top: 1.75vh; 
+            margin-left: 20px; 
+            display:inline-block;  
+            color:#000000; 
+            font-weight: bold;
+        }
+            #avisLegal:active {
+                text-decoration: underline; 
+                cursor:pointer;
+            }
+
+        .switch-button2 {
+            display: inline-block; 
+            margin-top:1vh; 
+            margin-left:50px; 
+        }
+            .switch-button2 .switch-button__checkbox2 { 
+                display: none;
+            }
+            .switch-button2 .switch-button__label2 { 
+                background-color: var(--color-red); 
+                width: 75px; 
+                height: 3vh; 
+                border-radius: 2vh;
+                display: inline-block; 
+                position: relative;
+            }
+            .switch-button2 .switch-button__label2:before { 
+                transition: .2s; 
+                display: block; 
+                position: absolute; 
+                width: 3vh; 
+                height: 3vh;
+                background-color: var(--color-button); 
+                content: ''; 
+                border-radius: 50%; 
+                box-shadow: inset 0px 0px 0px 1px var(--color-black);
+            }
+            .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2 { 
+                background-color: var(--color-green);
+            }
+            .switch-button2 .switch-button__checkbox2:checked + .switch-button__label2:before {
+                transform: translateX(40px);
+            }
+
+
+    /* 02) Pàgina: zonaInsegura.html */
+    
+        #titol-curt { 
+            display: inline-block; 
+            height:1.8vh; width:400px; 
+            text-align: center; 
+            margin-top:3vh;
+            padding:1.5vh 0; 
+            background-color:rgb(151, 101, 174); 
+            border-bottom-right-radius: 20px; 
+            border-top-right-radius: 20px;
+        }
+
+        #boto-centrarMapa {
+            display:inline-block; 
+            font-size:32px; 
+            margin-left: 20px; 
+            color:#000000; 
+            padding:2vh 20px; 
+            background-color: rgb(217, 195, 222);
+            border-radius:20px; 
+            font-weight:bold;
+        }
+            #boto-centrarMapa:active {
+                background-color: rgb(151, 101, 174); 
+                color: #ffffff; 
+                cursor:pointer; 
+            }
+
+        #contenidor-mapa {
+            position:absolute; 
+            left:50%; 
+            margin-left:-300px; 
+            margin-top: 4vh; 
+            width:600px; 
+            height:28vh; 
+            border: solid 2px #000000;
+            z-index: 100; 
+            color:blue;
+        }
+            #latlng {
+                position:absolute; 
+                width: 350px; 
+                left: 1%; 
+                z-index: 5; 
+                background-color: #fff; 
+                padding: 5px; 
+                border: 1px solid #999;
+                text-align: center; 
+                line-height: 30px; 
+                padding-left: 10px; 
+            }
+            #geocodif-inv {
+                position: absolute; 
+                left:62%; 
+                z-index:5; 
+                background-color: #fff; 
+                padding: 5px; 
+                border: 1px solid #999;
+                text-align: center; 
+                line-height: 30px;
+            }
+
+            #map-canvas-inseg { /* map2 */
+                position:absolute; 
+                width:100%; 
+                height:100%; 
+                background-color: #000000; 
+                border: solid 2px #000000; 
+                z-index:1; 
+            }
         
+        .select-css { /* Formulari: Característiques de la zona */
+            font-family: 'Libre Baskerville', serif; 
+            margin-top:35vh; 
+            margin-left:-225px; 
+            font-size: 25px; 
+            width: 400px; 
+            height:5.5vh;
+            color: #000000; 
+            padding: 0 15px; 
+            box-sizing: border-box; 
+            border: 0.15vmin solid #aaa; 
+            box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+            border-radius: 10px; 
+            -moz-appearance: none; 
+            -webkit-appearance: none; 
+            appearance: none;
+            background-color: #fff; 
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+            linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); 
+            background-repeat: no-repeat, repeat; 
+            background-position: right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+        }
+            .select-css::-ms-expand {
+                display: none;
+            }
+            .select-css:hover {
+                border-color: #888;
+            }
+            .select-css:focus {
+                border-color: #aaa; 
+                box-shadow: 0 0 1px 3px rgba(112, 28, 123, 0.408); 
+                box-shadow: 0 0 0 3px -moz-mac-focusring;
+                color: #222; 
+                outline: none;
+            }
+            .select-css option { 
+                font-weight:normal;
+            }
 
-    /* zonaInsegura.html */
-
-
-
-        #titol-curt { display: inline-block; height:1.8vh; width:400px; text-align: center; margin-top:3vh;
-        padding:1.5vh 0; background-color:rgb(151, 101, 174); border-bottom-right-radius: 20px; border-top-right-radius: 20px;}
-
-
-
-
-
-        #boto-centrarMapa {display:inline-block; font-size:32px; margin-left: 20px; color:#000000; padding:2vh 20px; background-color: rgb(217, 195, 222);
-        border-radius:20px; font-weight:bold;}
-            #boto-centrarMapa:active {background-color: rgb(151, 101, 174); color: #ffffff; cursor:pointer; }
-
-
-
-
-
-
-        #contenidor-mapa {position:absolute; left:50%; margin-left:-300px; margin-top: 4vh; width:600px; height:28vh; border: solid 2px #000000;
-        z-index: 100; color:blue;}
-            #latlng {position:absolute; width: 350px; left: 1%; z-index: 5; background-color: #fff; padding: 5px; border: 1px solid #999;
-            text-align: center; line-height: 30px; padding-left: 10px; }
-            #geocodif-inv {position: absolute; left:62%; z-index:5; background-color: #fff; padding: 5px; border: 1px solid #999;
-                text-align: center; line-height: 30px;}
-
-        #map-canvas-inseg { position:absolute; width:100%; height:100%; background-color: #000000; border: solid 2px #000000; z-index:1; }
-
-            #map-canvas-invisible {margin-left:80px; width:100px; height:100px; border:solid 2px #000000;}
-            
-            .menu-desplegable {margin-left:80px; font-size: 32px;}
-
-
-
-        .select-css { font-family: 'Libre Baskerville', serif; margin-top:35vh; margin-left:-225px; font-size: 25px; width: 400px; height:5.5vh;
-            color: #000000; padding: 0 15px; box-sizing: border-box; border: 0.15vmin solid #aaa; box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-            border-radius: 10px; -moz-appearance: none; -webkit-appearance: none; appearance: none;
-            background-color: #fff; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-            linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); background-repeat: no-repeat, repeat; background-position: right .7em top 50%, 0 0;
-            background-size: .65em auto, 100%;}
-        .select-css::-ms-expand {display: none;}
-        .select-css:hover {border-color: #888;}
-        .select-css:focus {border-color: #aaa; box-shadow: 0 0 1px 3px rgba(112, 28, 123, 0.408); box-shadow: 0 0 0 3px -moz-mac-focusring;
-            color: #222; outline: none;}
-        .select-css option { font-weight:normal;}
-
-            #correccioSelect {margin-left:-275px;}
-
-        #boto-marcarMapa {display:inline-block; margin-left: 20px; color:#000000; padding:20px; background-color: rgb(217, 195, 222);
-            border-radius:20px; font-weight:bold; font-size:1.5vh;} /* 1.5vh funciona bé en aquest cas */
+        #boto-marcarMapa { /* Botó "Soc aquí" */
+            display:inline-block; 
+            margin-left: 20px; 
+            color:#000000; 
+            padding:20px; 
+            background-color: rgb(217, 195, 222);
+            border-radius:20px; 
+            font-weight:bold; 
+            font-size:1.5vh; /* 1.5vh funciona bé en aquest cas */
+        } 
             #boto-marcarMapa:active {background-color: rgb(151, 101, 174); color: #ffffff; cursor:pointer; }
 
-    
-
-        .comentari-formulari {color:#000000; margin-top:3vh; margin-left:-410px; height:1.8vh; }
+        .comentari-formulari { /* Títol "Comentari: " */
+            color:#000000; 
+            margin-top:3vh; 
+            margin-left:-410px; 
+            height:1.8vh; 
+        }
         
-        .comentari-formulari2 {color:#000000; margin-top:2vh; margin-left:-485px; height:1.8vh;  }
+        .comentari-formulari2 { /* Títol "Hora: " */
+            color:#000000; 
+            margin-top:2vh; 
+            margin-left:-485px; 
+            height:1.8vh;  
+        }
 
 
-        .input-time {margin-top:1vh; margin-left: 20px; height:5vh; width:200px; font-size:30px; padding:1vh 20px; display:inline-block; 
-            text-align: center; background-color: rgba(246, 201, 250, 0.118); border: solid 1px grey;}
+        .input-time {
+            margin-top:1vh; 
+            margin-left: 20px; 
+            height:5vh; 
+            width:200px; 
+            font-size:30px; 
+            padding:1vh 20px; 
+            display:inline-block; 
+            text-align: center; 
+            background-color: rgba(246, 201, 250, 0.118); 
+            border: solid 1px grey;
+        }
 
-        #boto-zonaInsegura {position:relative; display:inline-block; top:-10px; margin-left:275px; height:5vh; width:120px; font-size:25px;
-            color: rgb(151,101,174); background-color: #ffffff; font-weight: bold; margin-bottom:20px; }
-            #boto-zonaInsegura:active {background-color:rgb(151, 101, 174); color: #ffffff; cursor:pointer;}
+        #boto-zonaInsegura { /* Botó "Enviar" */
+            position:relative; 
+            display:inline-block; 
+            top:-10px; /* Alinear verticalment amb el camp de l'hora (.input-time) */
+            margin-left:275px; 
+            height:5vh; 
+            width:120px; 
+            font-size:25px;
+            color: rgb(151,101,174); 
+            background-color: #ffffff; 
+            font-weight: bold; 
+            margin-bottom:20px; 
+        }
+            #boto-zonaInsegura:active {
+                background-color:rgb(151, 101, 174); 
+                color: #ffffff; 
+                cursor:pointer;
+            }
+
+    /* 03) Pàgina: assetjament.html */
+
+        .entitats-recolzament {
+            font-size:0; 
+            padding-bottom:60px; 
+        }
+            .entitats-recolzament p {
+                display:inline-block; 
+                width:240px; 
+                margin-top:40px;
+            }
+            .entitat-recolzament-esquerra {
+                margin-left:120px;
+            }
+            .entitat-recolzament-dreta {
+                margin-left:20px;
+            }
+            .img-entitat-recolzament {
+                width:180px; 
+                height:180px; 
+                border-radius:200px; 
+                background-color: #000; 
+                border: solid 3px #000000;
+            }
+                .img-entitat-recolzament:active, .img-entitat-recolzament:hover {
+                    filter:invert(0.8); 
+                    cursor:pointer;
+                }
 
 
+        .formularis-assetjament {
+            height: 300px; 
+            border-top: solid 5px rgb(151, 101, 174);
+        }
 
-    /* assetjament.html */
+        #formulari-viapublica {
+            display:inline-block; 
+            clear:left; 
+            margin-top: 10vh; 
+            margin-left:5vh; 
+            width:200px; 
+            height:10vh; 
+            padding:2vh 20px 1vh;
+            background-color: rgb(216, 198, 225); 
+            color: #000000; 
+            border-radius: 3.5vh; 
+            box-shadow: 5px 10px 5px lightgray; 
+        }
+            #formulari-viapublica:active {
+                background-color: purple; 
+                color: #ffffff; 
+                cursor:pointer; 
+                box-shadow: 5px 10px 5px gray;
+            }
 
-        .entitats-recolzament {font-size:0; padding-bottom:60px; }
-            .entitats-recolzament p {display:inline-block; width:240px; margin-top:40px;}
-            .entitat-recolzament-esquerra {margin-left:120px;}
-            .entitat-recolzament-dreta {margin-left:20px;}
-            .img-entitat-recolzament {width:180px; height:180px; border-radius:200px; background-color: #000; border: solid 3px #000000;}
-                .img-entitat-recolzament:active, .img-entitat-recolzament:hover {filter:invert(0.8); cursor:pointer;}
+            #formulari-viapublica p {
+                font-size:30px; 
+                text-align:center;
+            }
 
+        #formulari-transport {
+            display:inline-block; 
+            margin-left: 60px; 
+            width:200px; 
+            height: 10vh; 
+            padding:2vh 20px 1vh;
+            background-color: rgb(216, 198, 225); 
+            color: #000000; 
+            border-radius: 3vh; 
+            box-shadow: 5px 10px 5px lightgray; 
+        }
+            #formulari-transport:active {
+                background-color: purple; 
+                color: #ffffff; 
+                cursor:pointer; 
+                box-shadow: 5px 10px 5px gray;
+            }
 
-        .formularis-assetjament {height: 300px; border-top: solid 5px rgb(151, 101, 174);}
+            #formulari-transport p {
+                font-size:30px; 
+                text-align:center;
+            }
 
-        #formulari-viapublica {display:inline-block; clear:left; margin-top: 60px; margin-left:5vh; width:240px; height:140px; padding:10px;
-            background-color: rgb(216, 198, 225); color: #000000; border-radius: 40px; box-shadow: 5px 10px 5px lightgray; }
-            #formulari-viapublica:active {background-color: purple; color: #ffffff; cursor:pointer; 
-                box-shadow: 5px 10px 5px gray;}
-
-            #formulari-viapublica p {font-size:30px; text-align:center;}
-
-        #formulari-transport {display:inline-block; margin-left: 60px; width:240px; height: 140px; padding:10px;
-            background-color: rgb(216, 198, 225); color: #000000; border-radius: 5vh; box-shadow: 5px 10px 5px lightgray; }
-            #formulari-transport:active {background-color: purple; color: #ffffff; cursor:pointer; 
-                box-shadow: 5px 10px 5px gray;}
-
-            #formulari-transport p {font-size:30px; text-align:center;}
-
-    /* zonaAssetjament.html */
+    /* 04) Pàgina: zonaAssetjament.html */
 
     
-        #titol-llarg { display: inline-block; height:4vh; width:350px; text-align: center; margin-top:3vh; 
-            padding:1.5vh 0; background-color:rgb(151, 101, 174); border-bottom-right-radius: 20px; border-top-right-radius: 20px;}
+        #titol-llarg { 
+            display: inline-block; 
+            height:4vh; 
+            width:350px; 
+            text-align: center; 
+            margin-top:3vh; 
+            padding:1.5vh 0; 
+            background-color:rgb(151, 101, 174); 
+            border-bottom-right-radius: 20px; 
+            border-top-right-radius: 20px;
+        }
         
-        #boto-centrarMapa2 {display:inline-block; font-size:32px; margin-left: 20px; position:relative; top:1vh;  transform: translateY(-2.5vh);
-                color:#000000; padding:2vh 20px; background-color: rgb(217, 195, 222); border-radius:20px; font-weight:bold;}
+        #boto-centrarMapa2 {
+            display:inline-block; 
+            font-size:32px; 
+            margin-left: 20px; 
+            position:relative; 
+            top:1vh;  
+            transform: translateY(-2.5vh); /* Alinear verticalment amb Títol: Comunicar Assetjament a la Vía Pública (#titol-llarg) */
+            color:#000000; 
+            padding:2vh 20px; 
+            background-color: rgb(217, 195, 222); 
+            border-radius:20px; 
+            font-weight:bold;
+        }
+
+        #correccioSelect { /* Corregir desplaçament a la dreta del formulari */
+            margin-left:-275px; 
+        }
+
+        .comentari-assetjament {
+            height:9vh; /* Canviar tamany del textarea del comentari per tal que la pàgina mesuri 100vh d'alçada */
+        } 
 
 
+    /* 05) Pàgina: transportAssetjament.html */
 
-        .comentari-assetjament {height:9vh;}
+        .select-css2 { 
+            margin-top:40px; 
+            margin-left:50px; 
+            font-size: 25px; 
+            width: 400px;
+            color: #000000; 
+            padding: 0 15px; 
+            box-sizing: border-box; 
+            border: 1px solid #aaa; 
+            box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+            border-radius: 10px; 
+            -moz-appearance: none; 
+            -webkit-appearance: none; 
+            appearance: none;
+            background-color: #fff; 
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+            linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); 
+            background-repeat: no-repeat, repeat; 
+            background-position: right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+        }
+            .select-css2::-ms-expand {
+                display: none;
+            }
+            .select-css2:hover {
+                border-color: #888;
+            }
+            .select-css2:focus {
+                border-color: #aaa; 
+                box-shadow: 0 0 1px 3px rgba(112, 28, 123, 0.408);
+                box-shadow: 0 0 0 3px -moz-mac-focusring;
+                color: #222; 
+                outline: none;
+            }
+            .select-css2 option { 
+                font-weight:normal;
+            }
 
+        .linia-transport { /* Camp per escriure la línia del transport */
+            margin-left:80px; 
+            height:70px; 
+            width:200px; 
+            font-size:30px; 
+            padding:10px; 
+            display:inline-block;
+        }
 
-    /* transportAssetjament.html */
+    /* 06) Pàgina: resultats.html */
 
-        .select-css2 { margin-top:40px; margin-left:50px; font-size: 25px; width: 400px;
-            color: #000000; padding: 0 15px; box-sizing: border-box; border: 1px solid #aaa; box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-            border-radius: 10px; -moz-appearance: none; -webkit-appearance: none; appearance: none;
-            background-color: #fff; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-            linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); background-repeat: no-repeat, repeat; background-position: right .7em top 50%, 0 0;
-            background-size: .65em auto, 100%;}
-        .select-css2::-ms-expand {display: none;}
-        .select-css2:hover {border-color: #888;}
-        .select-css2:focus {border-color: #aaa; box-shadow: 0 0 1px 3px rgba(112, 28, 123, 0.408); box-shadow: 0 0 0 3px -moz-mac-focusring;
-            color: #222; outline: none;}
-        .select-css2 option { font-weight:normal;}
+        #contenidor-mapa-resultats {
+            position:absolute; 
+            margin-top: 3vh; 
+            margin-left:10vw; 
+            width:80vw; 
+            height:40vh; 
+            border: solid 2px #000000;
+            z-index: 100; 
+            color:blue;
+        }
 
-        .linia-transport { margin-left:80px; height:70px; width:200px; font-size:30px; padding:10px; display:inline-block;}
+    /* ##### Configuració segons resolució #####*/    
+    /* Dispositius amb amplada superior a 720px (amplada definida al <meta> del pwa) */
 
+        @media (min-width: 721px)
+        
+        {
+            #caixaCos {
+                background: linear-gradient( rgba(131,58,180,0.3) 0%, rgba(194,29,253,0.2) 50%, rgba(231,69,252,0.1) 100%);
+            }
+            
+            .header {
+                height:24vh; 
+                background-color: transparent; 
+            }
 
+            .cosPrincipal {
+                flex:1; 
+                margin:auto; 
+                width:720px;
+            }
 
+            .footer {
+                height: 10vh; 
+                margin:auto; 
+                width:720px; 
+                background-color:rgb(216, 198, 225);
+            }
+            
+            /* A1) Pàgina: index.html */
 
-    /* resultats.html */
+                #boto-consultar-mapa {
+                    width: 350px;
+                }
+                #boto-consultar-mapa:hover {
+                    background-color:purple;
+                }
+                        .icona-maps {
+                            width:40px; 
+                            height:40px;  
+                        }
+                        .icona-maps-text {
+                            font-size:25px; 
+                            display:inline-block; 
+                            margin-top:25px; 
+                            margin-left:75px;
+                        }
 
-        #contenidor-mapa-resultats {position:absolute; margin-top: 3vh; margin-left:10vw; width:80vw; height:40vh; border: solid 2px #000000;
-            z-index: 100; color:blue;}
+                #boto-necessites-ajuda {
+                    width: 350px;
+                }
+                    #boto-necessites-ajuda:hover {background-color:purple;}
+                    .icona-tlf {
+                        position:absolute; 
+                        width:40px; 
+                        height:40px; 
+                        float:left; 
+                        margin-top:20px; 
+                        margin-left:20px; 
+                        background-color: lime;
+                        border-radius:5px; 
+                    }
+                        .icona-tlf-text {
+                            font-size:25px; 
+                            display:inline-block; 
+                            margin-left:75px; 
+                            margin-top:7%;  
+                        }
 
+                    
+            #politica:hover, #avisLegal:hover {
+                text-decoration: underline; 
+                cursor:pointer;
+            }
 
+            /* A2) Pàgina: zonaInsegura.html */
 
+                #boto-centrarMapa:hover, #boto-marcarMapa:hover {
+                    background-color: rgb(151, 101, 174); 
+                    color: #ffffff; 
+                    cursor:pointer; 
+                }
 
+                #boto-zonaInsegura:hover {
+                    background-color:rgb(151, 101, 174); 
+                    color: #ffffff; 
+                    cursor:pointer;
+                }
 
-    /* Codi geocoding */
+            /* A3) Pàgina: assetjament.html */
+                #formularis-assetjament p {font-size:50px;}
+                #formulari-viapublica p {
+                    font-size:26px; 
+                }
+                #formulari-viapublica:hover, #formulari-transport:hover {
+                    background-color: purple; 
+                    color: #ffffff; 
+                    cursor:pointer; 
+                    box-shadow: 5px 10px 5px gray;
+                }
+                
+                #formulari-transport p {
+                    font-size:26px; 
+                }
+                #formulari-transport:hover {
+                    background-color: purple; 
+                    color: #ffffff; 
+                    cursor:pointer; 
+                    box-shadow: 5px 10px 5px gray;
+                }
+                    
+            /* A4) Pàgina: zonaAssetjament.html */
+
+            /* A5) Pàgina: transportAssetjament.html */
+
+            /* A6) Pàgina: resultats.html */
+
+            /* A7) Opcions active/hover */
+            
+            
+            
+        }
+
+        /* ##### Funcionalitats a implementar en un futur ##### */
+
+        /* Z1) Geocodificació i Geocodificació inversa  */
 
 
         input[type=text] {
@@ -266,7 +846,7 @@ textarea {margin-top:10px; margin-left:10px; width:600px; height: 9vh; padding: 
         box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
         margin: 10px;
         padding: 0 0.5em;
-        font: 400 18px Roboto, Arial, sans-serif;
+        font: 400 12px Roboto, Arial, sans-serif;
         overflow: hidden;
         line-height: 40px;
         margin-right: 0;
@@ -332,42 +912,4 @@ textarea {margin-top:10px; margin-left:10px; width:600px; height: 9vh; padding: 
         padding: 1rem;
         font-size: medium;
         }
-
-  
-    /* Altres dispositius (PC) */
-
-        @media (min-width: 721px) {
-
-            #caixaCos {background: linear-gradient( rgba(131,58,180,0.3) 0%, rgba(194,29,253,0.2) 50%, rgba(231,69,252,0.1) 100%);}
-            
-            .header {height:24vh; background-color: transparent; }
-            .cosPrincipal {flex:1; margin:auto; width:720px;}
-            .footer {height: 10vh; margin:auto; width:720px; background-color:rgb(216, 198, 225);}
-            
-            #boto-consultar-mapa {width: 350px;}
-            #boto-consultar-mapa:hover {background-color:purple;}
-                    .icona-maps {width:40px; height:40px;  }
-                    .icona-maps-text {font-size:25px; display:inline-block; margin-top:25px; margin-left:75px;}
-
-            #boto-necessites-ajuda {width: 350px;}
-            .icona-tlf {position:absolute; width:40px; height:40px; float:left; margin-top:20px; margin-left:20px; background-color: lime;
-                border-radius:5px; }
-                .icona-tlf-text {font-size:25px; display:inline-block; margin-left:75px; margin-top:7%;  }
-
-
-
     
-        /* Visualització interactiva PC */
-            #boto-necessites-ajuda:hover {background-color:purple;}
-            #politica:hover, #avisLegal:hover {text-decoration: underline; cursor:pointer;}
-            
-            #boto-centrarMapa:hover, #boto-marcarMapa:hover {background-color: rgb(151, 101, 174); color: #ffffff; cursor:pointer; }
-            #boto-zonaInsegura:hover {background-color:rgb(151, 101, 174); color: #ffffff; cursor:pointer;}
-
-            #formulari-viapublica:hover, #formulari-transport:hover {background-color: purple; color: #ffffff; cursor:pointer; 
-                box-shadow: 5px 10px 5px gray;}
-            
-            #formulari-transport:hover {background-color: purple; color: #ffffff; cursor:pointer; 
-                box-shadow: 5px 10px 5px gray;}
-    }
-
