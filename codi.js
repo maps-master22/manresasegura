@@ -361,10 +361,10 @@ function initialize4() {
         
         styles: [{ // VISIBLE BARS RESTAURANTS
             featureType: "poi",
-            stylers: [{ visibility: "on" }],
+            stylers: [{ visibility: "off" }],
         }, {
             featureType: "poi.park",
-            stylers: [{ visibility: "on" }],
+            stylers: [{ visibility: "off" }],
         }, {
             featureType: "poi.park",
             elementType: "labels",
@@ -389,9 +389,9 @@ function initialize4() {
     }
  
 
-// Add marker when map is clicked (and overwrite when it is clicked again)
+    // Add marker when map is clicked (and overwrite when it is clicked again)
    
-var coord4;
+    var coord4;
     google.maps.event.addListener(map4, 'click', function(event) {
         placeMarker4(event.latLng);
         //coord4 = event.latLng;
@@ -451,6 +451,76 @@ var coord4;
         map4.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
        
     
+
+        var markerInseg = new google.maps.Marker({
+            position: new google.maps.LatLng(41.7273, 1.827424),
+            sName: "Zona Insegura",
+            map: map4,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8.5,
+                fillColor: "#F00",
+                fillOpacity: 0.4,
+                strokeWeight: 0.4
+            },
+        });
+
+        markerInseg.setIcon({
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: "yellow",
+            fillOpacity: 0.5,
+            strokeWeight: 1
+        })
+
+        var markerAssetj1 = new google.maps.Marker({
+            position: new google.maps.LatLng(41.7243, 1.827424),
+            sName: "Assetj1",
+            map: map4,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8.5,
+                fillColor: "#F00",
+                fillOpacity: 0.4,
+                strokeWeight: 0.4
+            },
+        });
+
+        markerAssetj1.setIcon({
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: "orange",
+            fillOpacity: 0.5,
+            strokeWeight: 1
+        })
+
+        var markerAssetj2 = new google.maps.Marker({
+           //position: new google.maps.LatLng(coord3.lat(), coord3.lng()),
+            position: new google.maps.LatLng(41.7243, 1.837424),
+            sName: "Assetj2",
+            map: map4,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8.5,
+                fillColor: "#F00",
+                fillOpacity: 0.4,
+                strokeWeight: 0.4
+            },
+        });
+
+        markerAssetj2.setIcon({
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: "red",
+            fillOpacity: 0.5,
+            strokeWeight: 1
+        })
+
+       
+
+
+
+
 
         
     
