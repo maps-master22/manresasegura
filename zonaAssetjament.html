@@ -42,9 +42,15 @@
     
     <body id="caixaCos">
         <div id="caixaCos">
-        <div class="header">
-            <h1><a href="index.html"><img src="images/logo_header.jpeg" /></a></h1> 
-        </div>
+            <div class="header">
+              
+                <h1 id="backToIndex" style="cursor:pointer"><img src="images/logo_header.jpeg" /></h1>   
+                <script type="text/javascript">
+                    document.getElementById("backToIndex").onclick = function () {
+                        location.href= "index.html" ;
+                    };
+                </script>
+            </div>
         <div class="cosPrincipal">
 
             <div class="embolcallTitol-i-boto">
@@ -53,21 +59,21 @@
                 <h2>a la Via Pública</h2>
             </div>
 
-            <button id="boto-centrarMapa2">
+            <button id="boto-centrarMapa3">
                 <p>Centrar Mapa</p>
             </button>
             </div>
             <script>
-                document.getElementById("boto-centrarMapa").addEventListener("click", function( event ) {
-                    map2.setCenter(new google.maps.LatLng(41.727751, 1.827424));
-                    map2.setZoom(13);
+                document.getElementById("boto-centrarMapa3").addEventListener("click", function( event ) {
+                    map3.setCenter(new google.maps.LatLng(41.727751, 1.827424));
+                    map3.setZoom(13);
                 });
             </script>
 
             <div id="embolcallZones">
 
                 <div id="contenidor-mapa">
-                    <div id="map-canvas-inseg"></div>
+                    <div id="map-canvas-assetj"></div>
                 </div>
 
                 
@@ -85,7 +91,7 @@
                     </select>
                     </label>
 
-                    <button id="boto-marcarMapa"> <!-- No únic element amb aquest nom-->
+                    <button id="boto-marcarMapa3"> <!-- No únic element amb aquest nom-->
                         <p>Sóc Aquí</p>
                     </button>
                     
@@ -116,7 +122,7 @@
 
                 <form><textarea class="comentari-assetjament"></textarea></form>
 
-                <h3 class="comentari-formulari">
+                <h3 class="comentari-formulari2">
                     Hora:
                 </h3>
 
@@ -125,7 +131,7 @@
 
                 
                 <button id="boto-zonaInsegura">
-                        Enviar
+                    Enviar
                 </button>
             </div>
         

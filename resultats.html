@@ -47,26 +47,46 @@
     
     <body id="caixaCos">
         <div class="header">
-            <!--<span class="menu-desplegable">&#8801</span> -->
-            <h1><a href="index.html"><img src="images/logo_header.jpeg" /></a></h1>
-
+              
+            <h1 id="backToIndex" style="cursor:pointer"><img src="images/logo_header.jpeg" /></h1>   
+            <script type="text/javascript">
+                document.getElementById("backToIndex").onclick = function () {
+                    location.href= "index.html" ;
+                };
+            </script>
         </div>
         
         
         <div class="cosPrincipal">
 
-            <div id="titol-zonainsegura">
-                <h2>Consultar Mapa Resultant</h2>
+            <div class="titol-i-boto">
+                <div id="titol-curt">
+                    <h2>Consultar Mapa Final</h2>
+                </div>
+
+                <button id="boto-centrarMapa">
+                    <p>Centrar Mapa</p>
+                </button>
             </div>
 
-            <div id="contenidor-mapa-resultats">
-                <div id="map-canvas-inseg"></div>
+            <script>
+                document.getElementById("boto-centrarMapa").addEventListener("click", function( event ) {
+                    map4.setCenter(new google.maps.LatLng(41.727751, 1.827424));
+                    map4.setZoom(13);
+                });
+                
+            </script>
+
+
+
+            <div id="contenidor-mapa-res">
+                <div id="map-canvas-result"></div>
             </div>
+
+
 
         </div>
         
-        <div class="footer">
-        </div>
 
         <script>
 	

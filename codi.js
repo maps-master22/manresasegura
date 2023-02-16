@@ -184,6 +184,284 @@ window.addEventListener('load', initialize2);
 
 
 
+// 02: Mapa zonaAssetjament.html
+
+var map3;
+var marker3;
+function initialize3() {
+
+    google.maps.controlStyle = 'azteca';
+    var mapOptions3 = {
+        zoom: 15,
+        minZoom: 12,
+        maxZoom:19,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false,
+        gestureHandling: "greedy",
+
+        center: new google.maps.LatLng(41.727751, 1.827424),
+        restriction: {
+            latLngBounds: {
+              north: 41.753,
+              south: 41.715,
+              east: 1.857,
+              west: 1.806,
+            },
+          },
+        
+        styles: [{ // VISIBLE BARS RESTAURANTS
+            featureType: "poi",
+            stylers: [{ visibility: "on" }],
+        }, {
+            featureType: "poi.park",
+            stylers: [{ visibility: "on" }],
+        }, {
+            featureType: "poi.park",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }],
+        }, {
+            featureType: "transit",
+            stylers: [{ visibility: "off" }],
+        }],
+        disableDoubleClickZoom:true,
+        clickableIcons: false
+    };
+    
+    
+    
+    map3 = new google.maps.Map(document.getElementById('map-canvas-assetj'), mapOptions3);
+  
+
+
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onSuccessGeolocating3);
+    }
+ 
+
+// Add marker when map is clicked (and overwrite when it is clicked again)
+   
+var coord3;
+    google.maps.event.addListener(map3, 'click', function(event) {
+        placeMarker3(event.latLng);
+        //coord3 = event.latLng;
+        //console.info(coord3.lat());
+        //console.info(coord3.lng());
+    });
+
+    function placeMarker3(location) {
+        if (marker3 == null)
+        {
+            marker3 = new google.maps.Marker({
+                position: location,
+                map: map3
+            }); 
+        } 
+        else
+        {
+            marker3.setPosition(location); 
+        } 
+
+    }
+
+    
+    
+    
+    function onSuccessGeolocating3(position) {
+
+        var circleBigOpt3 = {
+            center: new google.maps.LatLng(position.coords.latitude,position.coords.longitude), 
+            map: map3,
+            radius: position.coords.accuracy,
+            fillColor:"#4285f4",
+            fillOpacity:0.1,
+            strokeWeight:0
+        };
+    
+        var circleBig3 = new google.maps.Circle(circleBigOpt3);
+
+        var positionMarkerOptions3 = {
+            position: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+              icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  scale: 10,
+                  fillColor: '#4285f4',
+                  fillOpacity: 1,
+                  strokeColor: '#ffffff',
+                  strokeWeight: 1
+              },
+              map: map3
+
+             
+        }; 
+  
+          var marker3 = new google.maps.Marker(positionMarkerOptions3);
+  
+        
+        map3.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+       
+        
+        
+    
+        // Function that adds marker on the user's current location, when button "boto-marcarMapa" is clicked
+        
+
+    
+        document.getElementById("boto-marcarMapa3").addEventListener("click", function( event ) {
+            
+            placeMarker3(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+            var bounds3 = map3.getBounds();
+            if (bounds3.contains(marker3.getPosition()) == false) {
+                alert("Actualment no et trobes a Manresa");
+            }
+
+        });
+
+        
+    
+    }
+
+    
+
+
+
+}
+window.addEventListener('load', initialize3);
+
+
+// 03: Mapa resultats.html
+
+
+var map4;
+var marker4;
+function initialize4() {
+
+    google.maps.controlStyle = 'azteca';
+    var mapOptions4 = {
+        zoom: 15,
+        minZoom: 12,
+        maxZoom:19,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false,
+        gestureHandling: "greedy",
+
+        center: new google.maps.LatLng(41.727751, 1.827424),
+        restriction: {
+            latLngBounds: {
+              north: 41.753,
+              south: 41.715,
+              east: 1.857,
+              west: 1.806,
+            },
+          },
+        
+        styles: [{ // VISIBLE BARS RESTAURANTS
+            featureType: "poi",
+            stylers: [{ visibility: "on" }],
+        }, {
+            featureType: "poi.park",
+            stylers: [{ visibility: "on" }],
+        }, {
+            featureType: "poi.park",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }],
+        }, {
+            featureType: "transit",
+            stylers: [{ visibility: "off" }],
+        }],
+        disableDoubleClickZoom:true,
+        clickableIcons: false
+    };
+    
+    
+    
+    map4 = new google.maps.Map(document.getElementById('map-canvas-result'), mapOptions4);
+  
+
+
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onSuccessGeolocating4);
+    }
+ 
+
+// Add marker when map is clicked (and overwrite when it is clicked again)
+   
+var coord4;
+    google.maps.event.addListener(map4, 'click', function(event) {
+        placeMarker4(event.latLng);
+        //coord4 = event.latLng;
+        //console.info(coord4.lat());
+        //console.info(coord4.lng());
+    });
+
+    function placeMarker4(location) {
+        if (marker4 == null)
+        {
+            marker4 = new google.maps.Marker({
+                position: location,
+                map: map4
+            }); 
+        } 
+        else
+        {
+            marker4.setPosition(location); 
+        } 
+
+    }
+
+    
+    
+    
+    function onSuccessGeolocating4(position) {
+
+        var circleBigOpt4 = {
+            center: new google.maps.LatLng(position.coords.latitude,position.coords.longitude), 
+            map: map4,
+            radius: position.coords.accuracy,
+            fillColor:"#4285f4",
+            fillOpacity:0.1,
+            strokeWeight:0
+        };
+    
+        var circleBig4 = new google.maps.Circle(circleBigOpt4);
+
+        var positionMarkerOptions4 = {
+            position: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+              icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  scale: 10,
+                  fillColor: '#4285f4',
+                  fillOpacity: 1,
+                  strokeColor: '#ffffff',
+                  strokeWeight: 1
+              },
+              map: map4
+
+             
+        }; 
+  
+          var marker4 = new google.maps.Marker(positionMarkerOptions4);
+  
+        
+        map4.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+       
+    
+
+        
+    
+    }
+
+    
+
+
+
+}
+window.addEventListener('load', initialize4);
 
 
 

@@ -42,9 +42,15 @@
     
     <body>
         <div id="caixaCos">
-        <div class="header">
-            <h1><a href="index.html"><img src="images/logo_header.jpeg" /></a></h1>   
-        </div>
+            <div class="header">
+              
+                <h1 id="backToIndex" style="cursor:pointer"><img src="images/logo_header.jpeg" /></h1>   
+                <script type="text/javascript">
+                    document.getElementById("backToIndex").onclick = function () {
+                        location.href= "index.html" ;
+                    };
+                </script>
+            </div>
         <div class="cosPrincipal">
 
             <div id="titol-curt">
