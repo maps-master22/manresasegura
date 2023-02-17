@@ -53,65 +53,65 @@
             </div>
         <div class="cosPrincipal">
 
-            <div id="titol-curt">
+            <div id="titol-llarg">
                 <h2>Marcar Assetjament al Transport Públic</h2>
             </div>
 
+            <div id="embolcallZones">
 
-                        
-            <label>
-                <span>Tipus d'Assetjament</span>
-                <select class="select-css2">
-                    <option hidden>Tipus d'Assetjament</option>
-                    <option>Mirades sexuades no desitjades</option>
-                    <option>Xiulades o cops de clàxon</option>
-                    <option>Comentaris masclistes o crits invasius</option>
-                    <option>Invasió continuada de l'espai personal</option>
-                    <option>Tocaments puntuals o continus no desitjats</option>
-                    <option>Acorralaments</option>
-                    <option>Violació amb intimidació i/o violència física</option>
-                </select>
-                </label>
+                            
+                <label>
+                    <span>Tipus d'Assetjament</span>
+                    <select class="select-css2" id="correccioSelect2">
+                        <option hidden>Tipus d'Assetjament</option>
+                        <option>Mirades sexuades no desitjades</option>
+                        <option>Xiulades o cops de clàxon</option>
+                        <option>Comentaris masclistes o crits invasius</option>
+                        <option>Invasió continuada de l'espai personal</option>
+                        <option>Tocaments puntuals o continus no desitjats</option>
+                        <option>Acorralaments</option>
+                        <option>Violació amb intimidació i/o violència física</option>
+                    </select>
+                    </label>
 
-            <label>
-                <span>Tipus de Transport</span>
-                <select class="select-css2">
-                    <option hidden>Transport</option>
-                    <option>Renfe</option>
-                    <option>Ferrocarrils FGC</option>
-                    <option>Autobús Urbà</option>
-                    <option>Autobús Interurbà</option>
-                </select>
-                </label>
+                <label>
+                    <span>Tipus de Transport</span>
+                    <select class="select-css2">
+                        <option hidden>Transport</option>
+                        <option>Renfe</option>
+                        <option>Ferrocarrils FGC</option>
+                        <option>Autobús Urbà</option>
+                        <option>Autobús Interurbà</option>
+                    </select>
+                    </label>
+
+                    <h3 class="comentari-formulari2">
+                        Línia:
+                    </h3>
+
+                    <input type="text" id="linia-transport">
+                
 
                 <h3 class="comentari-formulari">
-                    Línia:
+                    Comentari:
                 </h3>
 
-                <input type="text" class="linia-transport">
-            
+                <form><textarea></textarea></form>
 
-            <h3 class="comentari-formulari">
-                Comentari:
-            </h3>
+                <h3 class="comentari-formulari">
+                    Hora:
+                </h3>
 
-            <form><textarea></textarea></form>
+                <!--<form><textarea class="hora-formulari"></textarea></form>-->
+                <input class="input-time" type="time" id="appt" name="appt"
+                min="09:00" max="18:00" required>
 
-            <h3 class="comentari-formulari">
-                Hora:
-            </h3>
-
-            <!--<form><textarea class="hora-formulari"></textarea></form>-->
-            <input class="input-time" type="time" id="appt" name="appt"
-            min="09:00" max="18:00" required>
-
-            
-            <button id="boto-zonaInsegura">
-                    Enviar
-            </button>
-            
+                
+                <button id="boto-zonaInsegura">
+                        Enviar
+                </button>
         
-
+            </div>
         </div>
         
         

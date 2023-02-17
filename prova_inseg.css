@@ -1,0 +1,80 @@
+        .entitats-recolzament {
+            font-size:0; 
+            padding-bottom:60px; 
+        }
+            .entitats-recolzament p {
+                display:inline-block; 
+                width:240px; 
+                margin-top:40px;
+            }
+            .entitat-recolzament-esquerra {
+                margin-left:120px;
+            }
+            .entitat-recolzament-dreta {
+                margin-left:20px;
+            }
+            .img-entitat-recolzament {
+                width:180px; 
+                height:180px; 
+                border-radius:200px; 
+                background-color: #000; 
+                border: solid 3px #000000;
+            }
+                .img-entitat-recolzament:active, .img-entitat-recolzament:hover {
+                    filter:invert(0.8); 
+                    cursor:pointer;
+                }
+
+
+        .formularis-assetjament {
+            height: 300px; 
+            border-top: solid 5px rgb(151, 101, 174);
+        }
+
+        #formulari-viapublica {
+            display:inline-block; 
+            clear:left; 
+            margin-top: 10vh; 
+            margin-left:5vh; 
+            width:200px; 
+            height:10vh; 
+            padding:2vh 20px 1vh;
+            background-color: rgb(216, 198, 225); 
+            color: #000000; 
+            border-radius: 3.5vh; 
+            box-shadow: 5px 10px 5px lightgray; 
+        }
+            #formulari-viapublica:active {
+                background-color: purple; 
+                color: #ffffff; 
+                cursor:pointer; 
+                box-shadow: 5px 10px 5px gray;
+            }
+
+            #formulari-viapublica p {
+                font-size:30px; 
+                text-align:center;
+            }
+
+        #formulari-transport {
+            display:inline-block; 
+            margin-left: 60px; 
+            width:200px; 
+            height: 10vh; 
+            padding:2vh 20px 1vh;
+            background-color: rgb(216, 198, 225); 
+            color: #000000; 
+            border-radius: 3vh; 
+            box-shadow: 5px 10px 5px lightgray; 
+        }
+            #formulari-transport:active {
+                background-color: purple; 
+                color: #ffffff; 
+                cursor:pointer; 
+                box-shadow: 5px 10px 5px gray;
+            }
+
+            #formulari-transport p {
+                font-size:30px; 
+                text-align:center;
+            }
