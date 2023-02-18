@@ -167,7 +167,12 @@
 
                 <script type="module">
 
-                    document.addEventListener("DOMContentLoaded", function() {
+                    document.addEventListener("DOMContentLoad", function() {
+
+                        // Afegir un event listener per a l'esdeveniment 'click' al mapa
+                        
+                            
+
                         const firebaseConfig = {
                             apiKey: "AIzaSyA6U_V4E1JqqEYru110RTZn7xG_1ezTTKk",
                             authDomain: "manresa-segura.firebaseapp.com",
@@ -184,6 +189,18 @@
 
                         var database = firebase.database();
                         var ref = database.ref('dades');
+                        
+                        // Definir les variables a nivell global
+                        let lat, lng;
+
+
+                        map2.addEventListener("click", () => {
+                        // Actualitzar les variables de coordenades
+                        lat = event.latlng.lat;
+                        lng = event.latlng.lng;
+                        });
+
+
 
                         // Funció per enviar les dades a Firebase
                         function enviarDades() {
@@ -191,12 +208,16 @@
                             const comentari = document.querySelector(".comentari-formulari-text").value;
                             const incidencia = document.querySelector(".select-css").value;
                             const hora = document.querySelector(".input-time").value;
+                            const latLng = event.latLng;
+                            
                             
                             // Inserir les dades a Firebase
                             database.ref("dades").push({
                                 comentari: comentari,
                                 incidencia: incidencia,
-                                hora: hora
+                                hora: hora,
+                                lat: lat,
+                                lng: lng
                             }).then(() => {
                                 console.log("Dades enviades correctament a Firebase");
                             }).catch((error) => {
@@ -204,9 +225,22 @@
                             });
 
                             console.info(comentari);
+                            console.info(coord.lat());
                         }
+                    
 
-                        document.querySelector("#boto-zonaInsegura").addEventListener("click", enviarDades);
+                        const btnEnviar = document.getElementById("boto-zonaInsegura");
+                        btnEnviar.addEventListener("click", () => {
+                        // Comprovar si les coordenades estan definides
+                            if (lat === undefined || lng === undefined) {
+                                console.error("Les coordenades no estan definides");
+                                return;
+                            }
+
+                        
+                        enviarDades();
+                        });
+                        
                     });
 
 
