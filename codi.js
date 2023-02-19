@@ -50,7 +50,7 @@ function dadesFirebase() {
         const hora = document.querySelector(".input-time").value;
         const map = "map2";
         sendDataToFirebase(lat, lng, comentari, incidencia, hora, map);
-        //location.href= "index.html" ;
+        location.href= "index.html" ;
     };
    
 };
@@ -71,67 +71,125 @@ function sendDataToFirebase(lat, lng, comentari, incidencia, hora, map) {
     } else {
         alert("Si us plau, selecciona la ubicació de la incidència al mapa abans d'enviar-la");
     }
-  }
-
-
-  function retrieveDataFromFirebaseAndPlaceMarkers(map) {
-  var ref = database.ref('dades');
-  ref.on('value', function(data) {
-    var dades = data.val();
-    var keys = Object.keys(dades);
-    for (var i = 0; i < keys.length; i++) {
-      var key = keys[i];
-      var dada = dades[key];
-      var lat = dada.lat;
-      var lng = dada.lng;
-      var comentari = dada.comentari;
-      var incidencia = dada.incidencia;
-      var hora = dada.hora;
-      var mapName = dada.map; // get the map name property
-
-      if (typeof lat === 'number' && !isNaN(lat) && typeof lng === 'number' && !isNaN(lng)) {
-        var latLng = new google.maps.LatLng(lat, lng);
-        var markerColor = mapName === "map2" ? "green" : "red";
-        var circle = new google.maps.Circle({
-            strokeColor: '#black',
-            strokeOpacity: 0.8,
-            strokeWeight: 1,
-            fillColor: markerColor,
-            fillOpacity: 0.55,
-            center: latLng, 
-            map: map,
-            radius: 25,
-            comentari:comentari
-          });
-
-          const infowindow = new google.maps.InfoWindow({
-            content: `
-              <div class="infowindow-content">
-                <div><strong>Comentari:</strong> ${comentari}</div>
-                <div><strong>Incidència:</strong> ${incidencia}</div>
-                <div><strong>Hora:</strong> ${hora}</div>
-              </div>
-            `,
-          });
-        
-          circle.addListener('mouseover', function() {
-            infowindow.setPosition(this.getCenter());
-            infowindow.open(map);
-          });
-        
-          circle.addListener('mouseout', function() {
-            infowindow.close();
-          });
-        
-          
-
-
-
-      }
-
-    }
-  });
 }
+
+  
+  function retrieveDataFromFirebaseAndPlaceMarkers(map) {
+    var ref = database.ref('dades');
+    ref.on('value', function(data) {
+      var dades = data.val();
+      var keys = Object.keys(dades);
+      for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var dada = dades[key];
+        var lat = dada.lat;
+        var lng = dada.lng;
+        var comentari = dada.comentari;
+        var incidencia = dada.incidencia;
+        var hora = dada.hora;
+        var mapName = dada.map; // get the map name property
+        
+        if (typeof lat === 'number' && !isNaN(lat) && typeof lng === 'number' && !isNaN(lng)) {
+          var latLng = new google.maps.LatLng(lat, lng);
+          var markerColor = mapName === "map2" ? "yellow" : "red";
+          var circle = new google.maps.Circle({
+              strokeColor: '#black',
+              strokeOpacity: 0.8,
+              strokeWeight: 1,
+              fillColor: markerColor,
+              fillOpacity: 0.55,
+              center: latLng, 
+              map: map,
+              radius: 25,
+              comentari: comentari
+            });
+  
+            circle.infowindow = new google.maps.InfoWindow({
+                content: `
+                  <div class="infowindow-content">
+                    <div><strong>Comentari:</strong> ${comentari}</div>
+                    <div><strong>Incidència:</strong> ${incidencia}</div>
+                    <div><strong>Hora:</strong> ${hora}</div>
+                  </div>
+                `,
+              });
+            
+              circle.addListener('mouseover', function() {
+                this.infowindow.setPosition(this.getCenter());
+                this.infowindow.open(map);
+              });
+            
+              circle.addListener('mouseout', function() {
+                this.infowindow.close();
+              });
+        }
+      }
+    });
+  }
+  
+  
+  /*
+  function retrieveDataFromFirebaseAndPlaceMarkers(map) {
+    var ref = database.ref('dades');
+    ref.on('value', function(data) {
+        var dades = data.val();
+        var keys = Object.keys(dades);
+        for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var dada = dades[key];
+        var lat = dada.lat;
+        var lng = dada.lng;
+        var comentari = dada.comentari;
+        var incidencia = dada.incidencia;
+        var hora = dada.hora;
+        var mapName = dada.map; // get the map name property
+
+        if (typeof lat === 'number' && !isNaN(lat) && typeof lng === 'number' && !isNaN(lng)) {
+            var latLng = new google.maps.LatLng(lat, lng);
+            var markerColor = mapName === "map2" ? "yellow" : "red";
+            var circle = new google.maps.Circle({
+                strokeColor: '#black',
+                strokeOpacity: 0.8,
+                strokeWeight: 1,
+                fillColor: markerColor,
+                fillOpacity: 0.55,
+                center: latLng, 
+                map: map,
+                radius: 25,
+                comentari:comentari
+            });
+
+            const infowindow = new google.maps.InfoWindow({
+                content: `
+                <div class="infowindow-content">
+                    <div><strong>Comentari:</strong> ${comentari}</div>
+                    <div><strong>Incidència:</strong> ${incidencia}</div>
+                    <div><strong>Hora:</strong> ${hora}</div>
+                </div>
+                `,
+            });
+            
+            circle.addListener('mouseover', function() {
+                infowindow.setPosition(this.getCenter());
+                infowindow.open(map);
+            });
+            
+            circle.addListener('mouseout', function() {
+                infowindow.close();
+            });
+            
+            
+
+
+
+        }
+
+        }
+        
+    });
+  }
+  */
+
      
 
 // Mapa index Zona Insegura
@@ -552,79 +610,7 @@ function initialize4() {
         
         map4.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
        
-    
-
-        var markerInseg = new google.maps.Marker({
-            position: new google.maps.LatLng(41.7273, 1.827424),
-            sName: "Zona Insegura",
-            map: map4,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: 8.5,
-                fillColor: "#F00",
-                fillOpacity: 0.4,
-                strokeWeight: 0.4
-            },
-        });
-
-        markerInseg.setIcon({
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: "yellow",
-            fillOpacity: 0.5,
-            strokeWeight: 1
-        })
-
-        var markerAssetj1 = new google.maps.Marker({
-            position: new google.maps.LatLng(41.7243, 1.827424),
-            sName: "Assetj1",
-            map: map4,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: 8.5,
-                fillColor: "#F00",
-                fillOpacity: 0.4,
-                strokeWeight: 0.4
-            },
-        });
-
-        markerAssetj1.setIcon({
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: "orange",
-            fillOpacity: 0.5,
-            strokeWeight: 1
-        })
-
-        var markerAssetj2 = new google.maps.Marker({
-           //position: new google.maps.LatLng(coord3.lat(), coord3.lng()),
-            position: new google.maps.LatLng(41.7243, 1.837424),
-            sName: "Assetj2",
-            map: map4,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: 8.5,
-                fillColor: "#F00",
-                fillOpacity: 0.4,
-                strokeWeight: 0.4
-            },
-        });
-
-        markerAssetj2.setIcon({
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: "red",
-            fillOpacity: 0.5,
-            strokeWeight: 1
-        })
-
-       
-
-
-
-
-
-        
+  
     
     }
 
