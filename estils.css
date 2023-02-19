@@ -851,6 +851,28 @@ textarea {
                 display:inline-block;
             }
 
+
+        .infowindow-content {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .infowindow-content div {
+            margin-bottom: 4px;
+            
+        }
+        .infowindow-content strong {
+            margin-right: 4px;
+        }
+            
+              
+              
+              
+              
+              
+
+
+
+
     /* ##### Configuració segons resolució #####*/    
     /* Dispositius amb amplada superior a 720px (amplada definida al <meta> del pwa) */
 

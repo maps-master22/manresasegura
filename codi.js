@@ -14,10 +14,10 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 var ref = database.ref('dades');
 
-let lat; // Define the lat variable outside of the event listener functions
+let lat; 
 let lng;
 
-function placeMarker(location) {
+function placeMarker(location) { // Funció global per col·locar un marker a la ubicació de la usuària
     if (marker2 == null) {
         marker2 = new google.maps.Marker({
         position: location,
@@ -29,11 +29,9 @@ function placeMarker(location) {
 }
 
 function dadesFirebase() {
-    
-    
+
     google.maps.event.addListener(map2, 'click', function(event) {
         
-
         placeMarker(event.latLng);
 
         const latLng = event.latLng;
@@ -44,73 +42,35 @@ function dadesFirebase() {
         console.info(lng);
     });
 
-    
-
-        var btnEnviar = document.querySelector("#boto-zonaInsegura");
-        btnEnviar.onclick = function() {
-            console.log("Button clicked");
-            const comentari = document.querySelector(".comentari-formulari-text").value;
-            const incidencia = document.querySelector(".select-css").value;
-            const hora = document.querySelector(".input-time").value;
-            sendDataToFirebase(lat, lng, comentari, incidencia, hora);
-            location.href= "index.html" ;
-        };
-
-
-        database.ref("dades").push({
-        comentari: comentari,
-        incidencia: incidencia,
-        hora: hora,
-        lat: lat, // Use the lat variable here
-        lng: lng
-        }).then(() => {
-        console.log("Dades enviades correctament a Firebase");
-        }).catch((error) => {
-        console.error("Error en enviar les dades a Firebase:", error);
-        });
-
-        console.info(comentari);
+    var btnEnviar = document.querySelector("#boto-zonaInsegura");
+    btnEnviar.onclick = function() {
+        console.log("Button clicked");
+        const comentari = document.querySelector(".comentari-formulari-text").value;
+        const incidencia = document.querySelector(".select-css").value;
+        const hora = document.querySelector(".input-time").value;
+        const map = "map2";
+        sendDataToFirebase(lat, lng, comentari, incidencia, hora, map);
+        //location.href= "index.html" ;
     };
-    /*
-    var latitud;
-    var longitud;
-    ref.once('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-        var childData = childSnapshot.val();
-        var latitud = childData.lat;
-        var longitud = childData.lng;
-        // Use the lat and lng data to create a circle marker on the map
-    });
-    });  
-
-    var circle = new google.maps.Circle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map: map4,
-        center: new google.maps.LatLng(latitud, longitud),
-        radius: 100 // set the radius of the circle in meters
-    });
-    */
+   
+};
 
 
-
-
-
-function sendDataToFirebase(lat, lng, comentari, incidencia, hora) {
-    database.ref("dades").push({
-      comentari: comentari,
-      incidencia: incidencia,
-      hora: hora,
-      lat: lat,
-      lng: lng
-    }).then(() => {
-      console.log("Dades enviades correctament a Firebase");
-    }).catch((error) => {
-      console.error("Error en enviar les dades a Firebase:", error);
-    });
+function sendDataToFirebase(lat, lng, comentari, incidencia, hora, map) {
+    if (lat && lng) { // Check if lat and lng have been defined
+        database.ref("dades");
+        var data = {
+            comentari: comentari,
+            incidencia: incidencia,
+            hora: hora,
+            lat: lat,
+            lng: lng,
+            map: map
+        };
+        ref.push(data);
+    } else {
+        alert("Si us plau, selecciona la ubicació de la incidència al mapa abans d'enviar-la");
+    }
   }
 
 
@@ -127,39 +87,52 @@ function sendDataToFirebase(lat, lng, comentari, incidencia, hora) {
       var comentari = dada.comentari;
       var incidencia = dada.incidencia;
       var hora = dada.hora;
-      var latLng = new google.maps.LatLng(lat, lng);
-      var circle = new google.maps.Circle({
-        strokeColor: '#black',
-        strokeOpacity: 0.8,
-        strokeWeight: 1,
-        fillColor: 'orange',
-        fillOpacity: 0.55,
-        center: latLng,
-        radius: 25, 
-        map: map,
-        title: comentari
-      });
+      var mapName = dada.map; // get the map name property
+
+      if (typeof lat === 'number' && !isNaN(lat) && typeof lng === 'number' && !isNaN(lng)) {
+        var latLng = new google.maps.LatLng(lat, lng);
+        var markerColor = mapName === "map2" ? "green" : "red";
+        var circle = new google.maps.Circle({
+            strokeColor: '#black',
+            strokeOpacity: 0.8,
+            strokeWeight: 1,
+            fillColor: markerColor,
+            fillOpacity: 0.55,
+            center: latLng, 
+            map: map,
+            radius: 25,
+            comentari:comentari
+          });
+
+          const infowindow = new google.maps.InfoWindow({
+            content: `
+              <div class="infowindow-content">
+                <div><strong>Comentari:</strong> ${comentari}</div>
+                <div><strong>Incidència:</strong> ${incidencia}</div>
+                <div><strong>Hora:</strong> ${hora}</div>
+              </div>
+            `,
+          });
+        
+          circle.addListener('mouseover', function() {
+            infowindow.setPosition(this.getCenter());
+            infowindow.open(map);
+          });
+        
+          circle.addListener('mouseout', function() {
+            infowindow.close();
+          });
+        
+          
+
+
+
+      }
+
     }
   });
 }
-        /*const circle = new google.maps.Circle({
-            strokeColor: '#000000',
-            strokeOpacity: 0.4,
-            strokeWeight: 1.5,
-            fillColor: '#F00',
-            fillOpacity: 0.55,
-            center: latLng,
-            map: map,
-            title: comentari,
-            radius: 15
-        });
-        */
-   
-
-  
-
-
-
+     
 
 // Mapa index Zona Insegura
 
@@ -310,6 +283,8 @@ function initialize2() {
         document.getElementById("boto-marcarMapa").addEventListener("click", function( event ) {
             
             placeMarker(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+            lat=position.coords.latitude;
+            lng=position.coords.longitude;
             var bounds = map2.getBounds();
             if (bounds.contains(marker.getPosition()) == false) {
                 alert("Actualment no et trobes a Manresa");
