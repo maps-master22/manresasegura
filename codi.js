@@ -17,21 +17,22 @@ var ref = database.ref('dades');
 let lat; // Define the lat variable outside of the event listener functions
 let lng;
 
+function placeMarker(location) {
+    if (marker2 == null) {
+        marker2 = new google.maps.Marker({
+        position: location,
+        map: map2
+        }); 
+    } else {
+        marker2.setPosition(location); 
+    } 
+}
 
 function dadesFirebase() {
     
     
     google.maps.event.addListener(map2, 'click', function(event) {
-        function placeMarker(location) {
-            if (marker2 == null) {
-                marker2 = new google.maps.Marker({
-                position: location,
-                map: map2
-                }); 
-            } else {
-                marker2.setPosition(location); 
-            } 
-        }
+        
 
         placeMarker(event.latLng);
 
@@ -52,6 +53,7 @@ function dadesFirebase() {
             const incidencia = document.querySelector(".select-css").value;
             const hora = document.querySelector(".input-time").value;
             sendDataToFirebase(lat, lng, comentari, incidencia, hora);
+            location.href= "index.html" ;
         };
 
 
@@ -113,29 +115,48 @@ function sendDataToFirebase(lat, lng, comentari, incidencia, hora) {
 
 
   function retrieveDataFromFirebaseAndPlaceMarkers(map) {
-    var ref = database.ref('dades');
-    ref.on('value', function(data) {
-      var dades = data.val();
-      var keys = Object.keys(dades);
-      for (var i = 0; i < keys.length; i++) {
-        var key = keys[i];
-        var dada = dades[key];
-        var lat = dada.lat;
-        var lng = dada.lng;
-        var comentari = dada.comentari;
-        var incidencia = dada.incidencia;
-        var hora = dada.hora;
-        var latLng = new google.maps.LatLng(lat, lng);
-        var marker = new google.maps.Marker({
-          position: latLng,
-          map: map,
-          title: comentari
+  var ref = database.ref('dades');
+  ref.on('value', function(data) {
+    var dades = data.val();
+    var keys = Object.keys(dades);
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      var dada = dades[key];
+      var lat = dada.lat;
+      var lng = dada.lng;
+      var comentari = dada.comentari;
+      var incidencia = dada.incidencia;
+      var hora = dada.hora;
+      var latLng = new google.maps.LatLng(lat, lng);
+      var circle = new google.maps.Circle({
+        strokeColor: '#black',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: 'orange',
+        fillOpacity: 0.55,
+        center: latLng,
+        radius: 25, 
+        map: map,
+        title: comentari
+      });
+    }
+  });
+}
+        /*const circle = new google.maps.Circle({
+            strokeColor: '#000000',
+            strokeOpacity: 0.4,
+            strokeWeight: 1.5,
+            fillColor: '#F00',
+            fillOpacity: 0.55,
+            center: latLng,
+            map: map,
+            title: comentari,
+            radius: 15
         });
-      }
-    });
-  }
+        */
+   
 
-
+  
 
 
 
@@ -515,7 +536,7 @@ function initialize4() {
     }
  
 
-    // Add marker when map is clicked (and overwrite when it is clicked again)
+    // Pintar les dades emmagatzemades a Firebase sobre el mapa de resultats
    
     retrieveDataFromFirebaseAndPlaceMarkers(map4);
   
