@@ -97,30 +97,74 @@ function initialize2() {
     }
  
 
-// Add marker when map is clicked (and overwrite when it is clicked again)
-   
-var coord;
-    google.maps.event.addListener(map2, 'click', function(event) {
-        placeMarker(event.latLng);
-        //coord = event.latLng;
-        //console.info(coord.lat());
-        //console.info(coord.lng());
-    });
+    // Add marker when map is clicked (and overwrite when it is clicked again)
 
-    function placeMarker(location) {
-        if (marker2 == null)
-        {
-            marker2 = new google.maps.Marker({
+    const firebaseConfig = {
+        apiKey: "AIzaSyA6U_V4E1JqqEYru110RTZn7xG_1ezTTKk",
+        authDomain: "manresa-segura.firebaseapp.com",
+        databaseURL: "https://manresa-segura-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "manresa-segura",
+        storageBucket: "manresa-segura.appspot.com",
+        messagingSenderId: "209493940672",
+        appId: "1:209493940672:web:3ddb7ca50ac434ab1b9025",
+        measurementId: "G-H7E89YV9T9"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    var database = firebase.database();
+    var ref = database.ref('dades');
+
+    let lat; // Define the lat variable outside of the event listener functions
+    let lng;
+    
+    google.maps.event.addListener(map2, 'click', function(event) {
+        function placeMarker(location) {
+            if (marker2 == null) {
+                marker2 = new google.maps.Marker({
                 position: location,
                 map: map2
-            }); 
-        } 
-        else
-        {
-            marker2.setPosition(location); 
-        } 
+                }); 
+            } else {
+                marker2.setPosition(location); 
+            } 
+        }
 
-    }
+        placeMarker(event.latLng);
+
+        const latLng = event.latLng;
+        lat = latLng.lat(); // Assign a value to lat inside the function
+        lng = latLng.lng();
+
+        console.info(lat);
+        console.info(lng);
+    });
+
+    var btnEnviar = document.querySelector("#boto-zonaInsegura");
+    btnEnviar.onclick = function() {
+        console.log("Button clicked");
+        const comentari = document.querySelector(".comentari-formulari-text").value;
+        const incidencia = document.querySelector(".select-css").value;
+        const hora = document.querySelector(".input-time").value;
+
+        database.ref("dades").push({
+        comentari: comentari,
+        incidencia: incidencia,
+        hora: hora,
+        lat: lat, // Use the lat variable here
+        lng: lng
+        }).then(() => {
+        console.log("Dades enviades correctament a Firebase");
+        }).catch((error) => {
+        console.error("Error en enviar les dades a Firebase:", error);
+        });
+
+        console.info(comentari);
+    };
+    
+
+       
+
 
     
     
@@ -251,9 +295,9 @@ function initialize3() {
 var coord3;
     google.maps.event.addListener(map3, 'click', function(event) {
         placeMarker3(event.latLng);
-        //coord3 = event.latLng;
-        //console.info(coord3.lat());
-        //console.info(coord3.lng());
+        coord3 = event.latLng;
+        console.info(coord3.lat());
+        console.info(coord3.lng());
     });
 
     function placeMarker3(location) {
