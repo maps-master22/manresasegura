@@ -17,22 +17,36 @@ var ref = database.ref('dades');
 let lat; 
 let lng;
 
-function placeMarker(location) { // Funció global per col·locar un marker a la ubicació de la usuària
-    if (marker2 == null) {
-        marker2 = new google.maps.Marker({
+function placeMarker(location, map) {
+    let marker;
+  
+    if (map === map2) {
+      marker = marker2;
+    } else if (map === map3) {
+      marker = marker3;
+    }
+  
+    if (marker == null) {
+      marker = new google.maps.Marker({
         position: location,
-        map: map2
-        }); 
+        map: map,
+      });
+  
+      if (map === map2) {
+        marker2 = marker;
+      } else if (map === map3) {
+        marker3 = marker;
+      }
     } else {
-        marker2.setPosition(location); 
-    } 
-}
+      marker.setPosition(location);
+    }
+  }
 
-function dadesFirebase() {
+  function dadesFirebase(map) {
 
-    google.maps.event.addListener(map2, 'click', function(event) {
+    google.maps.event.addListener(map, 'click', function(event) {
         
-        placeMarker(event.latLng);
+        placeMarker(event.latLng, map);
 
         const latLng = event.latLng;
         lat = latLng.lat(); // Assign a value to lat inside the function
@@ -42,31 +56,31 @@ function dadesFirebase() {
         console.info(lng);
     });
 
-    var btnEnviar = document.querySelector("#boto-zonaInsegura");
+    var btnEnviar = map == map2 ? document.querySelector("#boto-zonaInsegura") : document.querySelector("#boto-zonaInsegura-2");
     btnEnviar.onclick = function() {
-        console.log("Button clicked");
-        const comentari = document.querySelector(".comentari-formulari-text").value;
-        const incidencia = document.querySelector(".select-css").value;
-        const hora = document.querySelector(".input-time").value;
-        const map = "map2";
-        sendDataToFirebase(lat, lng, comentari, incidencia, hora, map);
-        location.href= "index.html" ;
+        console.log("Botó premut");
+        const comentari = map == map2 ? document.querySelector(".comentari-formulari-text").value : document.querySelector(".comentari-formulari-text-2").value;
+        const incidencia = map == map2 ? document.querySelector(".select-css").value : document.querySelector(".select-css-2").value;
+        const hora = map == map2 ? document.querySelector(".input-time").value : document.querySelector(".input-time-2").value;
+        const mapName = map === map2 ? "map2" : "map3";
+        sendDataToFirebase(lat, lng, comentari, incidencia, hora, mapName);
+        //location.href= "index.html" ;
     };
    
 };
 
-
-function sendDataToFirebase(lat, lng, comentari, incidencia, hora, map) {
+function sendDataToFirebase(lat, lng, comentari, incidencia, hora, mapName) {
     if (lat && lng) { // Check if lat and lng have been defined
         database.ref("dades");
         var data = {
+            lat: lat,
+            lng: lng,
             comentari: comentari,
             incidencia: incidencia,
             hora: hora,
-            lat: lat,
-            lng: lng,
-            map: map
+            mapName: mapName,
         };
+        console.log("mapName: ", mapName);
         ref.push(data);
     } else {
         alert("Si us plau, selecciona la ubicació de la incidència al mapa abans d'enviar-la");
@@ -74,12 +88,15 @@ function sendDataToFirebase(lat, lng, comentari, incidencia, hora, map) {
 }
 
   
-  function retrieveDataFromFirebaseAndPlaceMarkers(map) {
+function retrieveDataFromFirebaseAndPlaceMarkers(map) {
+
+    
     var ref = database.ref('dades');
     ref.on('value', function(data) {
       var dades = data.val();
       var keys = Object.keys(dades);
       for (var i = 0; i < keys.length; i++) {
+        
         var key = keys[i];
         var dada = dades[key];
         var lat = dada.lat;
@@ -87,108 +104,49 @@ function sendDataToFirebase(lat, lng, comentari, incidencia, hora, map) {
         var comentari = dada.comentari;
         var incidencia = dada.incidencia;
         var hora = dada.hora;
-        var mapName = dada.map; // get the map name property
-        
+        var mapName = dada.mapName;
+        var markerColor = (mapName === "map2") ? "yellow" : (mapName === "map3" ? "orange" : "red");
+        console.log(`Processing record with mapName: ${dada.mapName}`);
+  
         if (typeof lat === 'number' && !isNaN(lat) && typeof lng === 'number' && !isNaN(lng)) {
           var latLng = new google.maps.LatLng(lat, lng);
-          var markerColor = mapName === "map2" ? "yellow" : "red";
           var circle = new google.maps.Circle({
-              strokeColor: '#black',
-              strokeOpacity: 0.8,
-              strokeWeight: 1,
-              fillColor: markerColor,
-              fillOpacity: 0.55,
-              center: latLng, 
-              map: map,
-              radius: 25,
-              comentari: comentari
-            });
+            strokeColor: '#black',
+            strokeOpacity: 0.8,
+            strokeWeight: 1,
+            fillColor: markerColor,
+            fillOpacity: 0.55,
+            center: latLng, 
+            map: map,
+            radius: 25,
+            comentari: comentari
+          });
   
-            circle.infowindow = new google.maps.InfoWindow({
-                content: `
-                  <div class="infowindow-content">
-                    <div><strong>Comentari:</strong> ${comentari}</div>
-                    <div><strong>Incidència:</strong> ${incidencia}</div>
-                    <div><strong>Hora:</strong> ${hora}</div>
-                  </div>
-                `,
-              });
-            
-              circle.addListener('mouseover', function() {
-                this.infowindow.setPosition(this.getCenter());
-                this.infowindow.open(map);
-              });
-            
-              circle.addListener('mouseout', function() {
-                this.infowindow.close();
-              });
+          circle.infowindow = new google.maps.InfoWindow({
+            content: `
+              <div class="infowindow-content">
+                <div><strong>Comentari:</strong> ${comentari}</div>
+                <div><strong>Incidència:</strong> ${incidencia}</div>
+                <div><strong>Hora:</strong> ${hora}</div>
+                <div><strong>Mapa:</strong> ${mapName}</div>
+              </div>
+            `,
+          });
+  
+          circle.addListener('mouseover', function() {
+            this.infowindow.setPosition(this.getCenter());
+            this.infowindow.open(map);
+          });
+  
+          circle.addListener('mouseout', function() {
+            this.infowindow.close();
+          });
         }
       }
     });
   }
   
-  
-  /*
-  function retrieveDataFromFirebaseAndPlaceMarkers(map) {
-    var ref = database.ref('dades');
-    ref.on('value', function(data) {
-        var dades = data.val();
-        var keys = Object.keys(dades);
-        for (var i = 0; i < keys.length; i++) {
-        var key = keys[i];
-        var dada = dades[key];
-        var lat = dada.lat;
-        var lng = dada.lng;
-        var comentari = dada.comentari;
-        var incidencia = dada.incidencia;
-        var hora = dada.hora;
-        var mapName = dada.map; // get the map name property
 
-        if (typeof lat === 'number' && !isNaN(lat) && typeof lng === 'number' && !isNaN(lng)) {
-            var latLng = new google.maps.LatLng(lat, lng);
-            var markerColor = mapName === "map2" ? "yellow" : "red";
-            var circle = new google.maps.Circle({
-                strokeColor: '#black',
-                strokeOpacity: 0.8,
-                strokeWeight: 1,
-                fillColor: markerColor,
-                fillOpacity: 0.55,
-                center: latLng, 
-                map: map,
-                radius: 25,
-                comentari:comentari
-            });
-
-            const infowindow = new google.maps.InfoWindow({
-                content: `
-                <div class="infowindow-content">
-                    <div><strong>Comentari:</strong> ${comentari}</div>
-                    <div><strong>Incidència:</strong> ${incidencia}</div>
-                    <div><strong>Hora:</strong> ${hora}</div>
-                </div>
-                `,
-            });
-            
-            circle.addListener('mouseover', function() {
-                infowindow.setPosition(this.getCenter());
-                infowindow.open(map);
-            });
-            
-            circle.addListener('mouseout', function() {
-                infowindow.close();
-            });
-            
-            
-
-
-
-        }
-
-        }
-        
-    });
-  }
-  */
 
      
 
@@ -293,7 +251,7 @@ function initialize2() {
 
     // FIREBASE
     
-    dadesFirebase(); 
+    dadesFirebase(map2); 
        
     
     
@@ -340,7 +298,7 @@ function initialize2() {
     
         document.getElementById("boto-marcarMapa").addEventListener("click", function( event ) {
             
-            placeMarker(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+            placeMarker(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), map2);
             lat=position.coords.latitude;
             lng=position.coords.longitude;
             var bounds = map2.getBounds();
@@ -419,36 +377,10 @@ function initialize3() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(onSuccessGeolocating3);
     }
+
+    dadesFirebase(map3); 
  
 
-// Add marker when map is clicked (and overwrite when it is clicked again)
-   
-var coord3;
-    google.maps.event.addListener(map3, 'click', function(event) {
-        placeMarker3(event.latLng);
-        coord3 = event.latLng;
-        console.info(coord3.lat());
-        console.info(coord3.lng());
-    });
-
-    function placeMarker3(location) {
-        if (marker3 == null)
-        {
-            marker3 = new google.maps.Marker({
-                position: location,
-                map: map3
-            }); 
-        } 
-        else
-        {
-            marker3.setPosition(location); 
-        } 
-
-    }
-
-    
-    
-    
     function onSuccessGeolocating3(position) {
 
         var circleBigOpt3 = {
@@ -486,12 +418,12 @@ var coord3;
         
     
         // Function that adds marker on the user's current location, when button "boto-marcarMapa" is clicked
-        
-
     
         document.getElementById("boto-marcarMapa3").addEventListener("click", function( event ) {
             
-            placeMarker3(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+            placeMarker(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), map3);
+            lat=position.coords.latitude;
+            lng=position.coords.longitude;
             var bounds3 = map3.getBounds();
             if (bounds3.contains(marker3.getPosition()) == false) {
                 alert("Actualment no et trobes a Manresa");
@@ -571,7 +503,8 @@ function initialize4() {
 
     // Pintar les dades emmagatzemades a Firebase sobre el mapa de resultats
    
-    retrieveDataFromFirebaseAndPlaceMarkers(map4);
+    retrieveDataFromFirebaseAndPlaceMarkers(map4, "map2");
+    
   
 
     

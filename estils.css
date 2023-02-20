@@ -666,6 +666,47 @@ textarea {
                 border: solid 2px #000000; 
                 z-index:1; 
             }
+        
+            .select-css-2 { /* Formulari: Tipus d'Assetjament */
+                font-family: 'Libre Baskerville', serif; 
+                margin-top:35vh; 
+                margin-left:-225px; 
+                font-size: 25px; 
+                width: 400px; 
+                height:5.5vh;
+                color: #000000; 
+                padding: 0 15px; 
+                box-sizing: border-box; 
+                border: 0.15vmin solid #aaa; 
+                box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+                border-radius: 10px; 
+                -moz-appearance: none; 
+                -webkit-appearance: none; 
+                appearance: none;
+                background-color: #fff; 
+                background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+                linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); 
+                background-repeat: no-repeat, repeat; 
+                background-position: right .7em top 50%, 0 0;
+                background-size: .65em auto, 100%;
+            }
+                .select-css-2::-ms-expand {
+                    display: none;
+                }
+                .select-css-2:hover {
+                    border-color: #888;
+                }
+                .select-css-2:focus {
+                    border-color: #aaa; 
+                    box-shadow: 0 0 1px 3px rgba(112, 28, 123, 0.408); 
+                    box-shadow: 0 0 0 3px -moz-mac-focusring;
+                    color: #222; 
+                    outline: none;
+                }
+                .select-css-2 option { 
+                    font-weight:normal;
+                }
+            
         #boto-marcarMapa3 { /* Botó "Soc aquí" */
             display:inline-block; 
             margin-left: 20px; 
@@ -687,6 +728,38 @@ textarea {
         .comentari-assetjament {
             height:9vh; /* Canviar tamany del textarea del comentari per tal que la pàgina mesuri 100vh d'alçada */
         } 
+
+        .input-time-2 {
+            margin-top:1vh; 
+            margin-left: 20px; 
+            height:5vh; 
+            width:200px; 
+            font-size:30px; 
+            padding:1vh 20px; 
+            display:inline-block; 
+            text-align: center; 
+            background-color: rgba(246, 201, 250, 0.118); 
+            border: solid 1px grey;
+        }
+
+        #boto-zonaInsegura-2 { /* Botó "Enviar" */
+            position:relative; 
+            display:inline-block; 
+            top:-10px; /* Alinear verticalment amb el camp de l'hora (.input-time) */
+            margin-left:275px; 
+            height:5vh; 
+            width:120px; 
+            font-size:25px;
+            color: rgb(151,101,174); 
+            background-color: #ffffff; 
+            font-weight: bold; 
+            margin-bottom:20px; 
+        }
+            #boto-zonaInsegura-2:active {
+                background-color:rgb(151, 101, 174); 
+                color: #ffffff; 
+                cursor:pointer;
+            }
 
 
     /* 05) Pàgina: transportAssetjament.html */
@@ -803,7 +876,23 @@ textarea {
                 display:inline-block;
                 
             }
-            
+            .punt {
+                height:20px;
+                width:20px;
+                margin-left:20px;
+                border: solid 1px #000000;
+                border-radius:50%;
+                display:inline-block;
+            }
+                #puntInseg {
+                    background-color: yellow;
+                }
+                #puntAssetj1 {
+                    background-color: orange;
+                }
+                #puntAssetj2 {
+                    background-color: red;
+                }
         .infoResultats {
             margin-top: 55vh;
             color:#000000;
@@ -974,6 +1063,13 @@ textarea {
                 color: #ffffff; 
                 cursor:pointer; 
             }
+
+            #boto-zonaInsegura-2:hover {
+                background-color:rgb(151, 101, 174); 
+                color: #ffffff; 
+                cursor:pointer;
+            }
+
 
             /* A5) Pàgina: transportAssetjament.html */
 
