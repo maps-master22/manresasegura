@@ -173,16 +173,13 @@
             
                 // Register the Service Worker
                 async function registerSW() {
-                if ('serviceWorker' in navigator) {
-                    try {
-                    await navigator
-                            .serviceWorker
-                            .register('serviceworker.js');
+                    if ('serviceWorker' in navigator) {
+                        try {
+                        await navigator.serviceWorker.register('serviceworker.js', { updateViaCache: 'none' });
+                        } catch (e) {
+                        console.log('SW registration failed');
+                        }
                     }
-                    catch (e) {
-                    console.log('SW registration failed');
-                    }
-                }
                 }
             
             

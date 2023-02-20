@@ -90,6 +90,8 @@ function sendDataToFirebase(lat, lng, comentari, incidencia, hora, mapName) {
   
 function retrieveDataFromFirebaseAndPlaceMarkers(map) {
 
+    var countMap2 = 0;
+    var countMap3 = 0;
     
     var ref = database.ref('dades');
     ref.on('value', function(data) {
@@ -107,6 +109,15 @@ function retrieveDataFromFirebaseAndPlaceMarkers(map) {
         var mapName = dada.mapName;
         var markerColor = (mapName === "map2") ? "yellow" : (mapName === "map3" ? "orange" : "red");
         console.log(`Processing record with mapName: ${dada.mapName}`);
+
+
+        if (mapName === "map2") {
+            countMap2++;
+          } else if (mapName === "map3") {
+            countMap3++;
+        }
+
+
   
         if (typeof lat === 'number' && !isNaN(lat) && typeof lng === 'number' && !isNaN(lng)) {
           var latLng = new google.maps.LatLng(lat, lng);
@@ -121,7 +132,13 @@ function retrieveDataFromFirebaseAndPlaceMarkers(map) {
             radius: 25,
             comentari: comentari
           });
-  
+          
+        console.log(`Number of entries with mapName "map2": ${countMap2}`);
+        console.log(`Number of entries with mapName "map3": ${countMap3}`);
+
+        document.getElementById('registresInseg').value = countMap2;
+        document.getElementById('registresAssetj').value = countMap3;
+
           circle.infowindow = new google.maps.InfoWindow({
             content: `
               <div class="infowindow-content">

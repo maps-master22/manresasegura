@@ -98,10 +98,10 @@
             </div>
 
             <div class="infoResultats">
-                <input type="number" value="1" id="registresInseg" readonly>
+                <input type="number" id="registresInseg" value="" readonly>
                 <p>Registres <em>Zona Insegura</em></p>
                 <div class="salt"></div>
-                <input type="number" value="2" id="registresViapub" readonly>
+                <input type="number" id="registresAssetj" value="" readonly>
                 <p>Registres <em>Assetjament Vía Pública</em></p>
                 <div class="salt"></div>
                 
@@ -123,18 +123,15 @@
         
             // Register the Service Worker
             async function registerSW() {
-            if ('serviceWorker' in navigator) {
-                try {
-                await navigator
-                        .serviceWorker
-                        .register('serviceworker.js');
-                }
-                catch (e) {
-                console.log('SW registration failed');
+                if ('serviceWorker' in navigator) {
+                    try {
+                    await navigator.serviceWorker.register('serviceworker.js', { updateViaCache: 'none' });
+                    } catch (e) {
+                    console.log('SW registration failed');
+                    }
                 }
             }
-            }
-        
+    
         
         </script>
 
