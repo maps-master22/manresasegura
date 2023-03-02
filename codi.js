@@ -61,6 +61,7 @@ function placeMarker(location, map) {
     var btnEnviar = map == map2 ? document.querySelector("#boto-zonaInsegura") : document.querySelector("#boto-zonaInsegura-2");
     btnEnviar.onclick = function() {
         console.log("Botó premut");
+        location.href= "index.html" ;
         const comentari = map == map2 ? document.querySelector(".comentari-formulari-text").value : document.querySelector(".comentari-formulari-text-2").value;
         const incidencia = map == map2 ? document.querySelector(".select-css").value : document.querySelector(".select-css-2").value;
         const hora = map == map2 ? document.querySelector(".input-time").value : document.querySelector(".input-time-2").value;
