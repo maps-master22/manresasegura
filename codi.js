@@ -1,3 +1,5 @@
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyA6U_V4E1JqqEYru110RTZn7xG_1ezTTKk",
     authDomain: "manresa-segura.firebaseapp.com",
@@ -64,7 +66,7 @@ function placeMarker(location, map) {
         const hora = map == map2 ? document.querySelector(".input-time").value : document.querySelector(".input-time-2").value;
         const mapName = map === map2 ? "map2" : "map3";
         sendDataToFirebase(lat, lng, comentari, incidencia, hora, mapName);
-        //location.href= "index.html" ;
+        location.href= "index.html" ;
     };
    
 };
@@ -107,7 +109,16 @@ function retrieveDataFromFirebaseAndPlaceMarkers(map) {
         var incidencia = dada.incidencia;
         var hora = dada.hora;
         var mapName = dada.mapName;
-        var markerColor = (mapName === "map2") ? "yellow" : (mapName === "map3" ? "orange" : "red");
+        var markerColor;
+        if (mapName === "map2") {
+        markerColor = "yellow";
+        } else if (mapName === "map3") {
+        if (incidencia === "Mirades sexuades no desitjades" || incidencia === "Xiulades o cops de clàxon" || incidencia === "Comentaris masclistes o crits invasius") {
+            markerColor = "orange";
+        } else {
+            markerColor = "red";
+        }
+        }
         console.log(`Processing record with mapName: ${dada.mapName}`);
 
 
@@ -145,7 +156,6 @@ function retrieveDataFromFirebaseAndPlaceMarkers(map) {
                 <div><strong>Comentari:</strong> ${comentari}</div>
                 <div><strong>Incidència:</strong> ${incidencia}</div>
                 <div><strong>Hora:</strong> ${hora}</div>
-                <div><strong>Mapa:</strong> ${mapName}</div>
               </div>
             `,
           });
@@ -493,7 +503,7 @@ function initialize4() {
             stylers: [{ visibility: "off" }],
         }, {
             featureType: "poi.park",
-            stylers: [{ visibility: "off" }],
+            stylers: [{ visibility: "on" }],
         }, {
             featureType: "poi.park",
             elementType: "labels",

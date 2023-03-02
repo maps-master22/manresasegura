@@ -896,30 +896,7 @@ textarea {
         .infoResultats {
             margin-top: 55vh;
             color:#000000;
-        }
-            #registresInseg {
-                display:inline-block;
-                width:80px;
-                height:40px;
-                margin-top:1vh;
-                margin-left:60px;
-                font-size:24px;
-                background-color: #ccc;
-                text-align:right;
-                font-weight: bold;
-            }
-            #registresAssetj {
-                display:inline-block;
-                width:80px;
-                height:40px;
-                margin-top:1vh;
-                margin-left:60px;
-                font-size:24px;
-                background-color: #ccc;
-                text-align: right;
-                font-weight: bold;
-            }
-            
+        }   
             .infoResultats p {
                 display:inline-block;
             }
@@ -935,6 +912,29 @@ textarea {
         }
         .infowindow-content strong {
             margin-right: 4px;
+        }
+        #registresInseg {
+            display:inline-block;
+            width:80px;
+            height:40px;
+            margin-top:1vh;
+            margin-left:60px;
+            font-size:24px;
+            background-color: #ccc;
+            text-align:right;
+            font-weight: bold;
+        }
+           
+        #registresAssetj {
+            display:inline-block;
+            width:80px;
+            height:40px;
+            margin-top:1vh;
+            margin-left:60px;
+            font-size:24px;
+            background-color: #ccc;
+            text-align: right;
+            font-weight: bold;
         }
             
               
